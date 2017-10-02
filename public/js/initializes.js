@@ -1,0 +1,24 @@
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-tooltip="tooltip"]').tooltip();
+  $('.owl-carousel').owlCarousel({
+    rtl:true,
+    loop:false,
+    margin:10,
+    nav:true,
+    navText : ["",""],
+    autoWidth:true,
+    items:2,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+  })
+});

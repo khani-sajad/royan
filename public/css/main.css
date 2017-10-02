@@ -1,0 +1,28 @@
+/*=================== Fonts =======================*/
+@font-face { font-family: 'Calibri'; src: url('../fonts/Calibri.ttf'); }
+@font-face { font-family: 'Yekan'; src: url('../fonts/Yekan.ttf'); }
+@font-face { font-family: 'Dinar'; src: url('../fonts/Dinar.ttf'); }
+
+.dinar { font-family: 'Dinar' }
+.yekan { font-family: 'Yekan' }
+.calibri { font-family: 'Calibri' }
+
+body {font-family: 'Calibri'}
+
+/*=================== Generals =======================*/
+.tooltip-inner { font-family: 'Dinar';}
+.hidden { display: none;}
+.round-corners { border-radius: 10px;}
+
+button {cursor: pointer}
+button.link {background: none; border:none;}
+
+a {-webkit-transition: 1s; transition: 1s;}
+
+/*=================== Main =======================*/
+main {min-height: 80vh}
+
+/*=================== Are You Sure =======================*/
+.are-you-sure {display: none; position: fixed; padding: 25px 100px; bottom: 50px; left: 50px; z-index:10}
+/*=================== Others =======================*/
+.flash {position: fixed; bottom: 25px; left: 25px; z-index: 10; padding: 20px 50px}
