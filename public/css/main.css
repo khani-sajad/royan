@@ -7,7 +7,7 @@
 .yekan { font-family: 'Yekan' }
 .calibri { font-family: 'Calibri' }
 
-body {font-family: 'Calibri'}
+body {font-family: 'Calibri'; overflow-x: hidden;}
 
 /*=================== Generals =======================*/
 .tooltip-inner { font-family: 'Dinar';}
@@ -26,3 +26,44 @@ main {min-height: 80vh}
 .are-you-sure {display: none; position: fixed; padding: 25px 100px; bottom: 50px; left: 50px; z-index:10}
 /*=================== Others =======================*/
 .flash {position: fixed; bottom: 25px; left: 25px; z-index: 10; padding: 20px 50px}
+
+
+
+/*=================== Dashboard =======================*/
+.gr-back {
+  background: #16222A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.dashboard {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  height: 100vh;
+}
+.dashboard a {
+  font-weight: bold;
+  color: snow;
+  display: block;
+  padding: 10px;
+}
+.dashboard a span {
+  font-weight: bold;
+}
+.dashboard a:hover {
+  color: snow;
+  text-decoration: none;
+  background: #085078;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.rotate {
+  -moz-transition: transform 1s;
+  -webkit-transition: transform 1s;
+  transition: transform 1s;
+}
+
+.flip {
+  transform: rotate(-180deg);
+}

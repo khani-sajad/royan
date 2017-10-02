@@ -19,14 +19,11 @@
 </head>
 <body dir="rtl">
 
-    <header>
-      @include('layouts.navbar')
-    </header>
-    <main>
-      @yield('body')
+    <main dir="rtl">
+      @yield('main')
     </main>
     <footer class="gr p-4 text-white text-center">
-      @include('layouts.footer')
+      {{-- @include('layouts.footer') --}}
     </footer>
 
     <!-- Scripts -->

@@ -28,4 +28,21 @@ $(document).ready(function () {
     $('.areYouSure').slideUp();
   });
 
+
+  //dashboard
+  $('a.mother').click(function () {
+    var id = $(this).attr('data-show');
+    var role = $(this).attr('data-role');
+
+    $(this).children('.rotate').toggleClass('flip');
+
+    if(role=='show'){
+      $('div#'+id).slideDown();
+       $(this).attr('data-role','hide');
+    }else{
+      $('div#'+id).slideUp();
+      $(this).attr('data-role','show');
+    }
+
+  });
 });
