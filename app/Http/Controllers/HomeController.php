@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect('dashboard/receiver');
+        switch (auth()->user()->type) {
+          case 'admin':
+            return redirect('dashboard/receiver');
+            break;
+
+          default:
+            break;
+        }//switch
     }
 }

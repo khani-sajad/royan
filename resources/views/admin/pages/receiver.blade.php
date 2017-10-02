@@ -107,7 +107,7 @@
 
     <fieldset class="form-group col-sm-3">
       <label for="guild">
-          صتف
+          صنف
       </label>
       <input type="text" class="form-control" id="guild"  name="guild">
     </fieldset>
