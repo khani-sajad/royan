@@ -22,7 +22,7 @@
     <main dir="rtl">
       @yield('main')
     </main>
-    <footer class="gr p-4 text-white text-center">
+    <footer>
       {{-- @include('layouts.footer') --}}
     </footer>
 
