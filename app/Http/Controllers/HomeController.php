@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         switch (auth()->user()->type) {
           case 'admin':
-            return redirect('dashboard/receiver');
+            return redirect('admin/receiver');
             break;
 
           default:
