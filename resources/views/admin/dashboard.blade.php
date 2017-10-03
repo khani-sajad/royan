@@ -10,7 +10,7 @@
     <i class="fa fa-users ml-2"></i>
     <span>پذیرنده</span>
   </a>
-  <a href="{{url('/admin/real_customer')}} @if ($dashboard=='real_customer') {{'class=active'}} @endif">
+  <a href="{{url('/admin/real_customer')}}" @if ($dashboard=='real_customer') {{'class=active'}} @endif>
     <i class="fa fa-user ml-2"></i>
     <span>مشتری حقیقی</span>
   </a>

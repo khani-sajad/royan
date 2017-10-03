@@ -5,7 +5,7 @@ $(document).ready(function () {
 
   //commo
   $('input.commo').keyup(function(event) {
-      if(event.which >= 37 && event.which <= 40) return;
+      if(event.which >= 37 && event.which <= 40 && event.which != 8) return;
       $(this).val(function(index, value) {
         return value
         .replace(/\D/g, "")
@@ -15,13 +15,16 @@ $(document).ready(function () {
     });
   //dash
   $('input.dash').keyup(function(event) {
-      if(event.which >= 37 && event.which <= 40) return;
-      $(this).val(function(index, value) {
-        return value
-        .replace(/\D/g, "")
-        .replace(/\B(?=(\d{4})+(?!\d))/g, "-")
-        ;
-      });
+      var value = $(this).val();
+      if(event.which >= 37 && event.which <= 40  && event.which != 8) return;
+      if (event.which != 8 && value.replace(/-/g, "").length % 4 == 0 && value.length != 19) {
+        $(this).val(value+'-');
+      }
+    });
+
+    //prevent submiting from card reader
+    $('[data-card-reader]').on('submit', function(){
+      if ($('#uid:focus').length){return false;}
     });
 
   //attempt to delete

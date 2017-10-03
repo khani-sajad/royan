@@ -108,7 +108,7 @@
       <label for="guild">
           صنف
       </label>
-      <input value="{{old('guild')}}" type="text" class="form-control" id="guild"  name="guild">
+      <input value="{{old('guild')}}" type="text" class="form-control" id="guild" name="guild">
     </fieldset>
     <fieldset class="form-group col-sm-3">
       <label for="shopping_center">
@@ -224,13 +224,14 @@
       <label class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" name="is_reference" value="1" {{old('is_reference') ? 'checked' : '' }}>
         <span class="custom-control-indicator"></span>
-        <span class="custom-control-description pointer"> این پذیرنده مرجع نیز میباشد. </span>
+        <span class="custom-control-description"> این پذیرنده مرجع نیز می&zwnj;باشد. </span>
       </label>
     </fieldset>
 
     {{-------------------------------------------------------------}}
 
-    <button type="submit" class="btn btn-primary col-sm-12">ذخیره</button>
+    <div class="col-sm-4"></div>
+    <button type="submit" class="btn btn-primary col-sm-4">ذخیره</button>
 
   </form>
 </div>
