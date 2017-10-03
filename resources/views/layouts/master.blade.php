@@ -15,6 +15,7 @@
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/persianDatepicker-default.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body dir="rtl">
@@ -33,6 +34,7 @@
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/smooth-scroll.js') }}"></script>
+    <script src="{{ asset('js/persianDatepicker.min.js') }}"></script>
     <script src="{{ asset('js/initializes.js') }}"></script>
     <!-- <script type="text/javascript"> AJAX </script> -->
     <script src="{{ asset('js/main.js') }}"></script>

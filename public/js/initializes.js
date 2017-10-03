@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-tooltip="tooltip"]').tooltip();
+  $('[data-calendar="persian"]').persianDatepicker();
   $('.owl-carousel').owlCarousel({
     rtl:true,
     loop:false,
