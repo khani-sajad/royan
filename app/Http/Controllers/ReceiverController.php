@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Receiver;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class ReceiverController extends Controller
 {
@@ -20,11 +22,31 @@ class ReceiverController extends Controller
 
     public function store()
     {
-        $receiver = self::validation();
-        $card = $this->validate_card();
-        $user = UserController::validation('receiver');
-        $this->flash_message( \App\User::create($user) && Receiver::create($receiver) );
+        //validations
+        $receiver = Validate::receiver();
+        $card = Validate::card();
+        $user =  Validate::user();
 
+        //receiver
+        $receiver_instance = Receiver::create($receiver);
+        Helper::check($receiver_instance);
+
+        //card
+        $card['cardable_id'] = $receiver_instance->id;
+        $card['cardable_type'] = 'Receiver';
+        $card_instance = \App\Card::create($card);
+        Helper::check($card_instance);
+
+        //user
+        $user['userable_id'] = $receiver_instance->id;
+        $user['userable_type'] = 'Receiver';
+        $card_instance = \App\Card::create($card);
+        Helper::check($receiver_instance);
+
+        //flash message
+        Helper::flash_message();
+
+        //redirection
         return back();
     }
 
@@ -48,33 +70,5 @@ class ReceiverController extends Controller
         //
     }
 
-    public static function validation()
-    {
-        return request()->validate([
-            "business_name" => "required",
-            "register_number" => "required",
-            "manager_name" => "required",
-            "contact_name" => "nullable",
-            "telegram_channel" => "required|unique:receivers",
-            "telegram_id" => "required|unique:receivers",
-            "instagram_id" => "required|unique:receivers",
-            "state" => "nullable",
-            "city" => "nullable",
-            "city_region" => "nullable",
-            "guild" => "nullable",
-            "shopping_center" => "nullable",
-            "commision_percentage_for_introducer" => "nullable",
-            "commision_points_for_introducer" => "nullable|integer",
-            "commision_percentage_for_network" => "nullable",
-            "commision_points_for_network" => "nullable|integer",
-            "monthly_support_for_network" => "nullable",
-            "base_discount_percentage" => "nullable|integer",
-            "base_point" => "nullable|integer",
-            "number_of_lotteries" => "nullable|integer",
-            "awards_list" => "nullable",
-            "sell_type" => "nullable",
-            "activity_type" => "nullable",
-            "is_reference" => "nullable",
-        ]);
-    }
+
 }

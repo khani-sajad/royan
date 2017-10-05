@@ -12,7 +12,7 @@ class DashboardController extends Controller
     }
     public static function admin($dashboard)
     {
-      if (auth()->user()->type != 'admin') {
+      if (auth()->user()->userable_type != 'Admin') {
         abort(404);
       }
       return view('home',compact('dashboard'));

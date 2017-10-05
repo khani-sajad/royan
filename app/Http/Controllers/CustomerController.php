@@ -6,6 +6,7 @@ use App\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+
 class CustomerController extends Controller
 {
 
@@ -21,15 +22,32 @@ class CustomerController extends Controller
 
     public function store()
     {
-        $customer = self::validation();
-        $card = $this->validate_card('');
+        //validations
+        $customer = Validate::customer();
+        $card = Validate::card();
+        
+        //customer
+        $customer_instance = Customer::create($customer);
+        Helper::check($customer_instance);
+
+        //user
         $user = new \App\User;
         $user->name = request('mobile');
-        $user->password = Hash::make('000000');
-        if($user->save() && $instance = \App\Card::create($card)){
-          $customer['card_id'] = $instance->id;
-          $this->flash_message(Customer::create($customer) );
-        }
+        $user->userable_id = $customer_instance->id;
+        $user->userable_type = 'Customer';
+        $user->password = Hash::make('123456');
+        Helper::check($user->save());
+
+        //card
+        $card['cardable_id'] = $customer_instance->id;
+        $card['cardable_type'] = 'Customer';
+        $card_instance = \App\Card::create($card);
+        Helper::check($customer_instance);
+
+        //flash message
+        Helper::flash_message();
+
+        //redirection
         return back();
     }
 
@@ -53,21 +71,4 @@ class CustomerController extends Controller
         //
     }
 
-    public static function validation()
-    {
-        return request()->validate([
-            "mobile" => "required|string|digits:11|unique:customers",
-            "natinal_code" => "nullable|digits:10|unique:customers",
-            "first_name" => "nullable|string",
-            "last_name" => "nullable|string",
-            "job" => "nullable|string",
-            "state" => "nullable|string",
-            "city" => "nullable|string",
-            "city_region" => "nullable|string",
-            "birthday" => "nullable",
-            "marriage_date" => "nullable",
-            "person_type" => "nullable",
-            "buy_type" => "nullable",
-        ]);
-    }
 }
