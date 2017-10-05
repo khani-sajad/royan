@@ -6,6 +6,7 @@ Route::get('/', function () {
 
 Route::resource('receivers','ReceiverController');
 Route::resource('customers','CustomerController');
+Route::resource('legals','LegalController');
 
 Auth::routes();
 

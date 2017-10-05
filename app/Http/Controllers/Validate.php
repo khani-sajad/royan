@@ -71,4 +71,17 @@ class Validate extends Controller
             "email" => "nullable|email|unique:users",
         ]);
     }
+
+    public static function legal()
+    {
+        return request()->validate([
+            "company_name" => "required|max:191",
+            "manager_name" => "nullable|max:191",
+            "guild" => "nullable|max:191",
+            "telephone" => "required",
+            "state" => "nullable|max:191",
+            "city" => "nullable|max:191",
+            "city_region" => "nullable|max:191",
+        ]);
+    }
 }
