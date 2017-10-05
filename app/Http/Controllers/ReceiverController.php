@@ -40,8 +40,8 @@ class ReceiverController extends Controller
         //user
         $user['userable_id'] = $receiver_instance->id;
         $user['userable_type'] = 'Receiver';
-        $card_instance = \App\Card::create($card);
-        Helper::check($receiver_instance);
+        $user_instance = \App\User::create($user);
+        Helper::check($user_instance);
 
         //flash message
         Helper::flash_message();
