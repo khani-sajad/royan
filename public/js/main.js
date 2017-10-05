@@ -17,7 +17,8 @@ $(document).ready(function () {
   $('input.dash').keyup(function(event) {
       var value = $(this).val();
       if(event.which >= 37 && event.which <= 40  && event.which != 8) return;
-      if (event.which != 8 && value.replace(/-/g, "").length % 4 == 0 && value.length != 19) {
+      var len = value.replace(/-/g, "").length;
+      if (event.which != 8 && len % 4 == 0 && len !=0 && value.length != 19) {
         $(this).val(value+'-');
       }
     });
