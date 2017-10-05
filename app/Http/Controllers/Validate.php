@@ -84,4 +84,12 @@ class Validate extends Controller
             "city_region" => "nullable|max:191",
         ]);
     }
+
+    public static function reference()
+    {
+        return request()->validate([
+            "dedicated_cards" => "required|integer",
+        ]);
+    }
+
 }

@@ -26,22 +26,22 @@ class ReceiverController extends Controller
         $receiver = Validate::receiver();
         $card = Validate::card();
         $user =  Validate::user();
+        $reference = request('is_reference') ? Validate::reference() : null;
 
         //receiver
         $receiver_instance = Receiver::create($receiver);
         Helper::check($receiver_instance);
 
         //card
-        $card['cardable_id'] = $receiver_instance->id;
-        $card['cardable_type'] = 'Receiver';
-        $card_instance = \App\Card::create($card);
-        Helper::check($card_instance);
+        Make::card($card,$receiver_instance->id,'Receiver');
 
         //user
-        $user['userable_id'] = $receiver_instance->id;
-        $user['userable_type'] = 'Receiver';
-        $user_instance = \App\User::create($user);
-        Helper::check($user_instance);
+        Make::user($user,$receiver_instance->id,'Receiver');
+
+        //reference
+        if($reference){
+          Make::reference($reference,$receiver_instance->id,'Receiver');
+        }
 
         //flash message
         Helper::flash_message();

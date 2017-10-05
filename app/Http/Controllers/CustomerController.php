@@ -23,6 +23,7 @@ class CustomerController extends Controller
         //validations
         $customer = Validate::customer();
         $card = Validate::card();
+        $reference = request('is_reference') ? Validate::reference() : null;
 
         //customer
         $customer_instance = Customer::create($customer);
@@ -30,17 +31,19 @@ class CustomerController extends Controller
 
         //user
         $user = new \App\User;
-        $user->name = request('mobile');
+        $user->username = request('mobile');
         $user->userable_id = $customer_instance->id;
         $user->userable_type = 'Customer';
         $user->password = bcrypt('123456');
         Helper::check($user->save());
 
         //card
-        $card['cardable_id'] = $customer_instance->id;
-        $card['cardable_type'] = 'Customer';
-        $card_instance = \App\Card::create($card);
-        Helper::check($customer_instance);
+        Make::card($card,$customer_instance->id,'Customer');
+
+        //reference
+        if($reference){
+          Make::reference($reference,$customer_instance->id,'Customer');
+        }
 
         //flash message
         Helper::flash_message();

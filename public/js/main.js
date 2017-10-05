@@ -23,6 +23,16 @@ $(document).ready(function () {
       }
     });
 
+    //check uncheck reference input type
+    $('input[name=is_reference]').change(function() {
+       if ( !this.checked ){
+         $('input[name=dedicated_cards]').slideUp();
+       }else {
+         $('input[name=dedicated_cards]').slideDown();
+       }
+    });
+
+
     //prevent submiting from card reader
     $('[data-card-reader]').on('submit', function(){
       if ($('#uid:focus').length){return false;}

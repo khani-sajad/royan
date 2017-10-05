@@ -24,22 +24,22 @@ class LegalController extends Controller
         $legal = Validate::legal();
         $card = Validate::card();
         $user =  Validate::user();
+        $reference = request('is_reference') ? Validate::reference() : null;
 
         //legal
         $legal_instance = Legal::create($legal);
         Helper::check($legal_instance);
 
         //card
-        $card['cardable_id'] = $legal_instance->id;
-        $card['cardable_type'] = 'Legal';
-        $card_instance = \App\Card::create($card);
-        Helper::check($card_instance);
+        Make::card($card,$legal_instance->id,'Legal');
 
         //user
-        $user['userable_id'] = $legal_instance->id;
-        $user['userable_type'] = 'Legal';
-        $user_instance = \App\User::create($user);
-        Helper::check($user_instance);
+        Make::user($user,$legal_instance->id,'Legal');
+
+        //reference
+        if($reference){
+          Make::reference($reference,$legal_instance->id,'Legal');
+        }
 
         //flash message
         Helper::flash_message();

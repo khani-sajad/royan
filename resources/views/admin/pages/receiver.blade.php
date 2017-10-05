@@ -245,7 +245,9 @@
         <span class="custom-control-indicator"></span>
         <span class="custom-control-description"> این پذیرنده مرجع نیز می&zwnj;باشد. </span>
       </label>
+      <input value="{{old('dedicated_cards')}}" type="text" class="form-control col-sm-5 {{old('is_reference') ? '' : 'hidden' }}" id="dedicated_cards"  name="dedicated_cards" placeholder="تعداد کارت های اختصاصی">
     </fieldset>
+
 
     {{-------------------------------------------------------------}}
 
