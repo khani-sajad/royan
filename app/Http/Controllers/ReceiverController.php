@@ -21,7 +21,8 @@ class ReceiverController extends Controller
     public function store()
     {
         $receiver = self::validation();
-        $user = UserController::validation();
+        $card = $this->validate_card();
+        $user = UserController::validation('receiver');
         $this->flash_message( \App\User::create($user) && Receiver::create($receiver) );
 
         return back();

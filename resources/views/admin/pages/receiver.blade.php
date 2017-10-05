@@ -1,6 +1,23 @@
 <div class="container-fluid">
-  <form class="row" action="{{url('receivers')}}" method="post">
+  <form class="row" action="{{url('receivers')}}" method="post" data-card-reader>
     {{csrf_field()}}
+
+    <fieldset class="form-group col-sm-6">
+      <label for="uid">
+        <i class="fa fa-asterisk small text-danger ml-1"></i>
+        اسکن کارت
+      </label>
+      <input value="{{old('uid')}}" type="text" class="form-control" id="uid" name="uid" autocomplete="off">
+    </fieldset>
+    <fieldset class="form-group col-sm-6">
+      <label for="number">
+        <i class="fa fa-asterisk small text-danger ml-1"></i>
+        شماره کارت
+      </label>
+      <input value="{{old('number')}}" type="text" class="form-control dash" id="number" dir="ltr" maxlength="19" name="number">
+    </fieldset>
+
+    {{---------------------------------------------------------------------------}}
 
     <fieldset class="form-group col-sm-6">
       <label for="business_name">
@@ -202,6 +219,7 @@
     <fieldset class="form-group col-sm-6">
       <label for="sell_type">نوع فروش</label>
       <select class="form-control" id="sell_type" name="sell_type">
+        <option disabled @if(!old('activity_type')) selected @endif>انتخاب کنید</option>
         <option {{old('sell_type') == '1' ? 'selected' : '' }} value="1">خرده</option>
         <option {{old('sell_type') == '2' ? 'selected' : '' }} value="2">عمده</option>
         <option {{old('sell_type') == '3' ? 'selected' : '' }} value="3">هردو</option>
@@ -210,6 +228,7 @@
     <fieldset class="form-group col-sm-6">
       <label for="activity_type">نوع فروش</label>
       <select class="form-control" id="activity_type" name="activity_type">
+        <option disabled @if(!old('activity_type')) selected @endif>انتخاب کنید</option>
         <option {{old('activity_type') == 'independent' ? 'selected' : '' }} value="independent">مستقل</option>
         <option {{old('activity_type') == 'shopping_center' ? 'selected' : '' }} value="shopping_center">مرکز خریدی</option>
         <option {{old('activity_type') == 'urban' ? 'selected' : '' }} value="urban">شهری</option>

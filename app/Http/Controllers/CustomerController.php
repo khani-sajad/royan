@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -21,15 +22,11 @@ class CustomerController extends Controller
     public function store()
     {
         $customer = self::validation();
-        $card = request()->validate([
-          "uid" => "required|unique:cards",
-          "number" => "required|unique:cards",
-          "type" => "nullable"
-        ]);
+        $card = $this->validate_card('');
         $user = new \App\User;
         $user->name = request('mobile');
-        $user->password = '000000';
-        if($instance = \App\Card::create($card)){
+        $user->password = Hash::make('000000');
+        if($user->save() && $instance = \App\Card::create($card)){
           $customer['card_id'] = $instance->id;
           $this->flash_message(Customer::create($customer) );
         }

@@ -43,13 +43,14 @@ class UserController extends Controller
         //
     }
 
-    public static function validation()
+    public static function validation($type)
     {
-      return request()->validate([
+      $validated_user = request()->validate([
           "name" => "required|unique:users",
           "password" => "required",
-          "email" => "",
-          "type" => ""
+          "email" => "nullable|email|unique:users",
       ]);
+      $validated_user['type'] = $type;
+      return $validated_user;
     }
 }

@@ -25,4 +25,12 @@ class Controller extends BaseController
       session()->flash('message', $message);
       session()->flash('status', $status);
     }
+    protected function validate_card()
+    {
+        return request()->validate([
+          "uid" => "required|unique:cards",
+          "number" => "required|unique:cards",
+          "type" => "nullable"
+        ]);
+    }
 }
