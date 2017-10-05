@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-
 
 class CustomerController extends Controller
 {
@@ -25,7 +23,7 @@ class CustomerController extends Controller
         //validations
         $customer = Validate::customer();
         $card = Validate::card();
-        
+
         //customer
         $customer_instance = Customer::create($customer);
         Helper::check($customer_instance);
@@ -35,7 +33,7 @@ class CustomerController extends Controller
         $user->name = request('mobile');
         $user->userable_id = $customer_instance->id;
         $user->userable_type = 'Customer';
-        $user->password = Hash::make('123456');
+        $user->password = bcrypt('123456');
         Helper::check($user->save());
 
         //card

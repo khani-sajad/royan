@@ -66,7 +66,7 @@ class Validate extends Controller
     public static function user()
     {
         return request()->validate([
-            "name" => "required|unique:users",
+            "username" => "required|unique:users",
             "password" => "required",
             "email" => "nullable|email|unique:users",
         ]);

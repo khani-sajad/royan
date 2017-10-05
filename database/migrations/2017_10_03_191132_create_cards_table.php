@@ -15,6 +15,8 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('cardable_id');
+            $table->string('cardable_type');
             $table->string('uid')->unique();
             $table->string('number')->unique();
             $table->string('type')->default('card');

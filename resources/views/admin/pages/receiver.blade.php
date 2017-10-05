@@ -84,11 +84,11 @@
       <input value="{{old('email')}}" type="email" class="form-control" id="email"  name="email">
     </fieldset>
     <fieldset class="form-group col-sm-4">
-      <label for="name">
+      <label for="username">
         <i class="fa fa-asterisk small text-danger ml-1"></i>
           نام کاربری
       </label>
-      <input value="{{old('name')}}" type="text" class="form-control" id="name"  name="name">
+      <input value="{{old('name')}}" type="text" class="form-control" id="username"  name="username">
     </fieldset>
     <fieldset class="form-group col-sm-4">
       <label for="password">
