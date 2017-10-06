@@ -19,6 +19,7 @@ class CreateReferenceOffersTable extends Migration
             $table->unsignedInteger('reference_id')->nullable();
             $table->unsignedInteger('number_of_itroductions')->nullable();
             $table->string('min_amount')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -19,6 +19,10 @@ class DashboardController extends Controller
         $users = \App\User::all();
         return view('home',compact('dashboard','users'));
       }
+      if ($dashboard == 'offers_list') {
+        $offers = \App\Offer::all();
+        return view('home',compact('dashboard','offers'));
+      }
       return view('home',compact('dashboard'));
     }
 }

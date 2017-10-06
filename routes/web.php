@@ -8,6 +8,7 @@ Route::resource('receivers','ReceiverController');
 Route::resource('customers','CustomerController');
 Route::resource('legals','LegalController');
 Route::resource('offers','OfferController');
+Route::resource('reference_offers','ReferenceOfferController');
 
 Auth::routes();
 

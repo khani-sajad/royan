@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <form class="row" action="{{url('offers')}}" method="post" data-card-reader>
+  <form class="row" action="{{url('reference_offers')}}" method="post" data-card-reader>
     {{csrf_field()}}
     <fieldset class="form-group col-sm-4">
       <label for="subject">
