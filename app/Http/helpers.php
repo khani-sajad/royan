@@ -10,3 +10,12 @@ function translate($word){
     default: return ''; break;
   }
 }
+
+function offer_type($type){
+  switch ($type) {
+    case '1': return 'عمومی' ; break;
+    case '2': return 'مرجع' ; break;
+
+    default: return ''; break;
+  }
+}
