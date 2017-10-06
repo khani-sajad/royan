@@ -107,4 +107,12 @@ class Validate extends Controller
         ]);
     }
 
+    public static function reference_offer()
+    {
+        return request()->validate([
+            "number_of_itroductions" => "nullable|integer",
+            "min_amount" => "nullable",
+        ]);
+    }
+
 }

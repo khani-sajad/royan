@@ -29,7 +29,7 @@
   <span>ایجاد آفر</span>
   <i class="fa fa-chevron-{{ in_array( $dashboard,['make_public_offer','make_reference_offer'] ) ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
-<div id="createOffer" class="drop @if (!in_array($dashboard,['make_public_offer','make_reference_id'])) {{'hidden'}} @endif">
+<div id="createOffer" class="drop @if (!in_array($dashboard,['make_public_offer','make_reference_offer'])) {{'hidden'}} @endif">
   <a href="{{url('/admin/make_public_offer')}}" @if ($dashboard=='make_public_offer') {{'class=active'}} @endif>
     <i class="fa fa-backward ml-2"></i>
     <span>آفر عمومی</span>
