@@ -69,3 +69,6 @@ i.small {font-size: 0.6em}
 .flip {
   transform: rotate(-180deg);
 }
+.drop a {
+  padding-right: 30px;
+}

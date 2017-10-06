@@ -92,4 +92,19 @@ class Validate extends Controller
         ]);
     }
 
+    public static function offer()
+    {
+        return request()->validate([
+            "subject" => "required|string",
+            "since" => "nullable|max:10",
+            "untill" => "nullable|max:10",
+            "number_of_shops" => "nullable|integer",
+            "amount" => "nullable",
+            "discount" => "nullable",
+            "points" => "nullable|integer",
+            "gift" => "nullable",
+            "type" => "nullable|integer|digits:1",
+        ]);
+    }
+
 }
