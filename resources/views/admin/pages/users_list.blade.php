@@ -10,7 +10,7 @@
     @foreach ($users as $user)
       <tr>
         <td>{{$user->username}}</td>
-        <td>{{($user->userable_type)}}</td>
+        <td>{{translate($user->userable_type)}}</td>
         <td class="text-center">
           <a href="#">
             <i class="fa fa-list" data-toggle="tooltip" title="جزییات"></i>
