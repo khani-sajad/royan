@@ -1,4 +1,25 @@
 <a href="javascript:void(0)" class="mother"
+  data-role="{{ in_array( $dashboard,['users_list','offers_list'] ) ? 'hide' : 'show'}}"
+  data-show="see">
+  <i class="fa fa-eye ml-2"></i>
+  <span>مشاهده</span>
+  <i class="fa fa-chevron-{{ in_array( $dashboard,['users_list','offers_list'] ) ? 'up' : 'down'}} float-left ml-2 rotate"></i>
+</a>
+<div id="see" class="drop @if (!in_array($dashboard,['users_list','offers_list'])) {{'hidden'}} @endif">
+  <a href="{{url('/admin/users_list')}}" @if ($dashboard=='users_list') {{'class=active'}} @endif>
+    <i class="fa fa-users ml-2"></i>
+    <span>کاربران</span>
+  </a>
+  <a href="{{url('/admin/offers_list')}}" @if ($dashboard=='offers_list') {{'class=active'}} @endif>
+    <i class="fa fa-list ml-2"></i>
+    <span>آفر ها</span>
+  </a>
+</div>
+
+
+{{------------------------------------------------------------------------------------------}}
+
+<a href="javascript:void(0)" class="mother"
   data-role="{{ in_array( $dashboard,['receiver','real_customer','legal_customer'] ) ? 'hide' : 'show'}}"
   data-show="createUser">
   <i class="fa fa-user-plus ml-2"></i>

@@ -15,6 +15,10 @@ class DashboardController extends Controller
       if (auth()->user()->userable_type != 'Admin') {
         abort(404);
       }
+      if ($dashboard == 'users_list') {
+        $users = \App\User::all();
+        return view('home',compact('dashboard','users'));
+      }
       return view('home',compact('dashboard'));
     }
 }

@@ -20,6 +20,8 @@ button.link {background: none; border:none;}
 
 a {-webkit-transition: 1s; transition: 1s;}
 
+th {text-align: center;}
+
 i.small {font-size: 0.6em}
 
 .custom-control-indicator {position: absolute; right: 0;}
