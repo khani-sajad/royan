@@ -26,6 +26,7 @@ class Make extends Controller
     {
         $user['userable_id'] = $id;
         $user['userable_type'] = $type;
+        $user['password'] = bcrypt($user['password']);
         $user_instance = \App\User::create($user);
         Helper::check($user_instance);
     }

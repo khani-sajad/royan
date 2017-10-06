@@ -88,7 +88,7 @@
         <i class="fa fa-asterisk small text-danger ml-1"></i>
           نام کاربری
       </label>
-      <input value="{{old('name')}}" type="text" class="form-control" id="username"  name="username">
+      <input value="{{old('username')}}" type="text" class="form-control" id="username"  name="username">
     </fieldset>
     <fieldset class="form-group col-sm-4">
       <label for="password">
@@ -180,7 +180,7 @@
       <label for="monthly_support_for_network">
         مبلغ پشتیبانی ماهانه
       </label>
-      <input value="{{old('monthly_support_for_network')}}" type="text" class="form-control" id="monthly_support_for_network"  name="monthly_support_for_network">
+      <input value="{{old('monthly_support_for_network')}}" type="text" class="form-control commo" id="monthly_support_for_network"  name="monthly_support_for_network">
     </fieldset>
 
 
@@ -226,7 +226,7 @@
       </select>
     </fieldset>
     <fieldset class="form-group col-sm-6">
-      <label for="activity_type">نوع فروش</label>
+      <label for="activity_type">نوع غعالیت</label>
       <select class="form-control" id="activity_type" name="activity_type">
         <option disabled @if(!old('activity_type')) selected @endif>انتخاب کنید</option>
         <option {{old('activity_type') == 'independent' ? 'selected' : '' }} value="independent">مستقل</option>
