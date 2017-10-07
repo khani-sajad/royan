@@ -27,6 +27,9 @@ class HomeController extends Controller
           case 'Admin':
             return redirect('admin/users_list');
             break;
+          case 'Receiver':
+            return redirect('receiver/acc_management');
+            break;
 
           default:
             break;
