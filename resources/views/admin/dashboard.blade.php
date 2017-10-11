@@ -1,11 +1,15 @@
+@php
+  $open = in_array($dashboard,['users_list','offers_list'])
+@endphp
+
 <a href="javascript:void(0)" class="mother"
-  data-role="{{ in_array( $dashboard,['users_list','offers_list'] ) ? 'hide' : 'show'}}"
+  data-role="{{ $open ? 'hide' : 'show'}}"
   data-show="see">
   <i class="fa fa-eye ml-2"></i>
   <span>مشاهده</span>
-  <i class="fa fa-chevron-{{ in_array( $dashboard,['users_list','offers_list'] ) ? 'up' : 'down'}} float-left ml-2 rotate"></i>
+  <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
-<div id="see" class="drop @if (!in_array($dashboard,['users_list','offers_list'])) {{'hidden'}} @endif">
+<div id="see" class="drop @if (!$open) {{'hidden'}} @endif">
   <a href="{{url('/admin/users_list')}}" @if ($dashboard=='users_list') {{'class=active'}} @endif>
     <i class="fa fa-users ml-2"></i>
     <span>کاربران</span>
@@ -19,14 +23,19 @@
 
 {{------------------------------------------------------------------------------------------}}
 
+@php
+  $open = in_array($dashboard,['receiver','real_customer','legal_customer'])
+@endphp
+
+
 <a href="javascript:void(0)" class="mother"
-  data-role="{{ in_array( $dashboard,['receiver','real_customer','legal_customer'] ) ? 'hide' : 'show'}}"
+  data-role="{{ $open ? 'hide' : 'show'}}"
   data-show="createUser">
   <i class="fa fa-user-plus ml-2"></i>
   <span>ایجاد کاربر</span>
-  <i class="fa fa-chevron-{{ in_array( $dashboard,['receiver','real_customer','legal_customer'] ) ? 'up' : 'down'}} float-left ml-2 rotate"></i>
+  <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
-<div id="createUser" class="drop @if (!in_array($dashboard,['receiver','real_customer','legal_customer'])) {{'hidden'}} @endif">
+<div id="createUser" class="drop @if (!$open) {{'hidden'}} @endif">
   <a href="{{url('/admin/receiver')}}" @if ($dashboard=='receiver') {{'class=active'}} @endif>
     <i class="fa fa-users ml-2"></i>
     <span>پذیرنده</span>
@@ -43,14 +52,19 @@
 
 {{--------------------------------------------------}}
 
+@php
+  $open = in_array( $dashboard,['make_public_offer','make_reference_offer'] )
+@endphp
+
+
 <a href="javascript:void(0)" class="mother"
-  data-role="{{ in_array( $dashboard,['make_public_offer','make_reference_offer'] ) ? 'hide' : 'show'}}"
+  data-role="{{ $open ? 'hide' : 'show'}}"
   data-show="createOffer">
   <i class="fa fa-percent ml-2"></i>
   <span>ایجاد آفر</span>
-  <i class="fa fa-chevron-{{ in_array( $dashboard,['make_public_offer','make_reference_offer'] ) ? 'up' : 'down'}} float-left ml-2 rotate"></i>
+  <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
-<div id="createOffer" class="drop @if (!in_array($dashboard,['make_public_offer','make_reference_offer'])) {{'hidden'}} @endif">
+<div id="createOffer" class="drop @if (!$open) {{'hidden'}} @endif">
   <a href="{{url('/admin/make_public_offer')}}" @if ($dashboard=='make_public_offer') {{'class=active'}} @endif>
     <i class="fa fa-backward ml-2"></i>
     <span>آفر عمومی</span>
