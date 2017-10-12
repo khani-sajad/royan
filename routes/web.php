@@ -17,3 +17,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/{dashboard}', 'DashboardController@admin');
 Route::get('/receiver/{dashboard}', 'DashboardController@receiver');
+
+Route::post('/receiver/new_transaction', 'AjaxController@get_card_owner');

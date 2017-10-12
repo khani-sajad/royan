@@ -33,7 +33,7 @@ class CustomerController extends Controller
         $user = new \App\User;
         $user->username = request('mobile');
         $user->userable_id = $customer_instance->id;
-        $user->userable_type = 'Customer';
+        $user->userable_type = '\App\Customer';
         $user->password = bcrypt('123456');
         Helper::check($user->save());
 

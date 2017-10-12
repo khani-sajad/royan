@@ -36,7 +36,8 @@
     <script src="{{ asset('js/smooth-scroll.js') }}"></script>
     <script src="{{ asset('js/persianDatepicker.min.js') }}"></script>
     <script src="{{ asset('js/initializes.js') }}"></script>
-    <!-- <script type="text/javascript"> AJAX </script> -->
+    <script src="{{ asset('js/ajax.js') }}"></script>
+    {{-- <script type="text/javascript"> @include('js.ajax') </script> --}}
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

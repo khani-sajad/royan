@@ -6,9 +6,9 @@
 {{------------------------------------------------------------------------------------------}}
 
 
-<a href="{{url('/receiver/acc_management')}}" @if ($dashboard=='acc_management') {{'class=active'}} @endif>
-  <i class="fa fa-money ml-2"></i>
-  <span>ثبت تراکنش</span>
+<a href="{{url('/receiver/customers')}}" @if ($dashboard=='customers') {{'class=active'}} @endif>
+  <i class="fa fa-group ml-2"></i>
+  <span>مشتریان</span>
 </a>
 
 

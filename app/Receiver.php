@@ -10,6 +10,6 @@ class Receiver extends Model
 
     public function card()
     {
-        return \App\Card::where('cardable_id',$this->id)->where('cardable_type', 'Customer')->first();
+        return $this->morphOne(Card::class,'cardable');
     }
 }
