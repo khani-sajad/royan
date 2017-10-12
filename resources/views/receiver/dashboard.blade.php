@@ -15,7 +15,7 @@
 {{------------------------------------------------------------------------------------------}}
 
 @php
-  $open = in_array( $dashboard,['new_transaction','transaction_list'] )
+  $open = in_array( $dashboard,['new_transaction','transactions_list'] )
 @endphp
 
 <a href="javascript:void(0)" class="mother"
@@ -30,7 +30,7 @@
     <i class="fa fa-pencil ml-2"></i>
     <span> ثبت تراکنش </span>
   </a>
-  <a href="{{url('/receiver/transaction_list')}}" @if ($dashboard=='transaction_list') {{'class=active'}} @endif>
+  <a href="{{url('/receiver/transactions_list')}}" @if ($dashboard=='transactions_list') {{'class=active'}} @endif>
     <i class="fa fa-list ml-2"></i>
     <span> لیست تراکنش ها </span>
   </a>

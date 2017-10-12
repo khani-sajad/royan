@@ -49,7 +49,9 @@ class DashboardController extends Controller
 
       //switching cases
       switch ($dashboard) {
-        case 'xxxx':
+        case 'transactions_list':
+          $transactions = \App\Transaction::where('receiver_id', auth()->user()->userable_id)->paginate(20);
+          return view('home',compact('dashboard','dashboard_type','transactions'));
           break;
 
         default:
