@@ -33,7 +33,7 @@ class ReferenceOfferController extends Controller
         Helper::check(\App\ReferenceOffer::create($ref_offer));
 
         //message and redirection
-        Helper::flash_message();
+        Helper::flash();
         return back();
     }
 

@@ -63,7 +63,7 @@ class UserController extends Controller
           return back();
         }
 
-        Helper::flash_message();
+        Helper::flash();
         return back();
     }
 

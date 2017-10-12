@@ -22,7 +22,7 @@ class OfferController extends Controller
     {
         $offer = Validate::offer();
         Helper::check(\App\Offer::create($offer));
-        Helper::flash_message();
+        Helper::flash();
         return back();
     }
 

@@ -44,7 +44,7 @@ class ReceiverController extends Controller
         }
 
         //flash message
-        Helper::flash_message();
+        Helper::flash();
 
         //redirection
         return back();

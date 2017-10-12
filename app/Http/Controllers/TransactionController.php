@@ -39,13 +39,14 @@ class TransactionController extends Controller
           Helper::check($credit->save());
 
         }else {
-          Helper::flash_message(false);
+          Helper::flash(false);
         }
+        
         session()->forget('customer_id');
         session()->forget('customer_type');
         session()->forget('credit_id');
 
-        Helper::flash_message(true);
+        Helper::flash(true);
         return back();
     }
 
