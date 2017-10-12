@@ -2,15 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Customer extends Model
+class Customer extends Person
 {
-    protected $guarded = ['id'];
 
-    public function card()
-    {
-        return $this->morphOne(Card::class,'cardable');
-    }
 
 }

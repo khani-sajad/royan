@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        switch (auth()->user()->userable_type) {
+        switch (ra(auth()->user()->userable_type)) {
           case 'Admin':
             return redirect('admin/users_list');
             break;

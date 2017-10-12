@@ -1,8 +1,10 @@
 <?php
+function ra($value){
+  return strtolower(str_replace('App\\','',$value));
+}
 
 function translate($word){
-  $word = str_replace('App\\','',$word);
-  switch ($word) {
+  switch (ra($word)) {
     case 'Admin': return 'ادمین' ; break;
     case 'Customer': return 'مشتری حقیقی' ; break;
     case 'Receiver': return 'پذیرنده' ; break;

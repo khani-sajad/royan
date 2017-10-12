@@ -2,14 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Receiver extends Model
+class Receiver extends Person
 {
-    protected $guarded = ['id'];
 
-    public function card()
-    {
-        return $this->morphOne(Card::class,'cardable');
-    }
 }

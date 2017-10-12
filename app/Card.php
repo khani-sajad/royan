@@ -12,4 +12,9 @@ class Card extends Model
     {
         return $this->morphTo();
     }
+
+    public function credits()
+    {
+      return $this->hasMany(Credit::class);
+    }
 }

@@ -13,13 +13,13 @@ class DashboardController extends Controller
 
     public static function admin($dashboard)
     {
-      //make sure the user is admin
-      if (auth()->user()->userable_type != 'Admin') {
-        abort(404);
-      }
-
       //determining dashboard type
       $dashboard_type = 'admin';
+
+      //make sure the user is admin
+      if ( ra(auth()->user()->userable_type) != $dashboard_type ) {
+        abort(404);
+      }
 
       //switching cases
       switch ($dashboard) {
@@ -39,13 +39,13 @@ class DashboardController extends Controller
 
     public function receiver($dashboard)
     {
-      // make sure the user is a receiver
-      if (auth()->user()->userable_type != 'Receiver') {
-        abort(404);
-      }
-
       //determining dashboard type
       $dashboard_type = 'receiver';
+
+      // make sure the user is a receiver
+      if ( ra(auth()->user()->userable_type) != $dashboard_type ) {
+        abort(404);
+      }
 
       //switching cases
       switch ($dashboard) {
