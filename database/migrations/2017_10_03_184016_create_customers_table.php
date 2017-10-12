@@ -27,6 +27,7 @@ class CreateCustomersTable extends Migration
             $table->string('marriage_date')->nullable();
             $table->string('person_type')->nullable();
             $table->boolean('buy_type')->nullable();
+            $table->boolean('is_reference')->default(0);
             $table->timestamps();
         });
     }

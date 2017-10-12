@@ -8,14 +8,11 @@ class AjaxController extends Controller
 {
     public function get_card_owner()
     {
-      $result = [];
       $uid = request('uid');
-
+      //card
       $card = \App\Card::where('uid',$uid)->first();
-      $result['card'] = $card;
-
-      // $cardable = $card
-
-      return $card->cardable;
+      $owner_type = strtolower(str_replace('App\\','',$card->cardable_type));
+      $owner = $card->cardable;
+      return view('partials.card',compact('card','owner','owner_type'));
     }
 }

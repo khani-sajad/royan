@@ -10,7 +10,7 @@ $(document).on('submit','.getCardOwner',function (e) {
   // var url = ;
 
   var result = send_ajax(window.location,formData);
-
+  
   $('.update').html(result);
 });
 

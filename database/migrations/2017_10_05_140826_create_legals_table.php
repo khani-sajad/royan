@@ -22,6 +22,7 @@ class CreateLegalsTable extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('city_region')->nullable();
+            $table->boolean('is_reference')->default(0);
             $table->timestamps();
         });
     }

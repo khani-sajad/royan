@@ -82,6 +82,7 @@ class Validate extends Controller
             "state" => "nullable|max:191",
             "city" => "nullable|max:191",
             "city_region" => "nullable|max:191",
+            "is_reference" => "nullable",
         ]);
     }
 
