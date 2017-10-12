@@ -1,5 +1,11 @@
+$(document).ready(function () {
+  $('.spinner').hide();
+});
+
 $(document).on('submit','.getCardOwner',function (e) {
   e.preventDefault();
+  $('.spinner').show();
+
   var uid = $('input#uid').val();
   var token = $('input[name="_token"]').val();
   var formData = {
@@ -8,30 +14,32 @@ $(document).on('submit','.getCardOwner',function (e) {
   }
 
   // var url = ;
+  var target = $('.update');
+  send_ajax(window.location,formData,target);
 
-  var result = send_ajax(window.location,formData);
-  
-  $('.update').html(result);
+  $('form.getCardOwner').slideUp();
+
 });
 
 
 /****************************************************************/
 
-function send_ajax(url,formData){
-  var final = '';
+function send_ajax(url,formData,target){
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
     }
   })
-  final = $.ajax({
+  $.ajax({
     type: 'POST',
     url: url,
-    async: false,
     data: formData,
+    beforeSend: function() {
+       $('.spinner').show();
+    },
     success: function(data) {
-      return data;
+      $('.spinner').hide();
+      target.html(data);
     }
-  }).responseText;
-  return final;
+  });
 }

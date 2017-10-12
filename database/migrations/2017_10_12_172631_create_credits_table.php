@@ -16,8 +16,8 @@ class CreateCreditsTable extends Migration
         Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('card_id');
-            $table->unsignedInteger('receiver_id');
-            $table->unsignedInteger('network_id');
+            $table->unsignedInteger('receiver_id')->nullable();
+            $table->unsignedInteger('network_id')->nullable();
             $table->string('amount');
             $table->timestamps();
         });

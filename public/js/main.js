@@ -4,7 +4,7 @@ $(document).ready(function () {
   $('.flash').delay(5000).fadeOut(1000);
 
   //commo
-  $('input.commo').keyup(function(event) {
+  $(document).on('keyup','input.commo',function(event) {
       if(event.which >= 37 && event.which <= 40 && event.which != 8) return;
       $(this).val(function(index, value) {
         return value
@@ -14,7 +14,7 @@ $(document).ready(function () {
       });
     });
   //dash
-  $('input.dash').keyup(function(event) {
+  $(document).on('keyup','input.dash',function(event) {
       var value = $(this).val();
       if(event.which >= 37 && event.which <= 40  && event.which != 8) return;
       var len = value.replace(/-/g, "").length;

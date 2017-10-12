@@ -5,10 +5,10 @@ function ra($value){
 
 function translate($word){
   switch (ra($word)) {
-    case 'Admin': return 'ادمین' ; break;
-    case 'Customer': return 'مشتری حقیقی' ; break;
-    case 'Receiver': return 'پذیرنده' ; break;
-    case 'Legal': return 'مشتری حقوقی' ; break;
+    case 'admin': return 'ادمین' ; break;
+    case 'customer': return 'مشتری حقیقی' ; break;
+    case 'receiver': return 'پذیرنده' ; break;
+    case 'legal': return 'مشتری حقوقی' ; break;
     case 'card': return 'آیکیو کارت' ; break;
     case 'paper': return 'آیکیو برگ' ; break;
 
@@ -23,4 +23,9 @@ function offer_type($type){
 
     default: return ''; break;
   }
+}
+
+function toman($value)
+{
+  return $value ? $value.' تومان' : $value;
 }

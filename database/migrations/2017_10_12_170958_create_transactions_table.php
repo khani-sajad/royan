@@ -17,8 +17,9 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('receiver_id');
             $table->unsignedInteger('customer_id');
-            $table->string('credit_amount');
-            $table->string('cash_amount');
+            $table->string('credit_amount')->nullable();
+            $table->string('cash_amount')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
