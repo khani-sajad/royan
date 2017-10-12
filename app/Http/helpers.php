@@ -3,6 +3,10 @@ function ra($value){
   return strtolower(str_replace('App\\','',$value));
 }
 
+function rc($value){
+  return (int) strtolower(str_replace(',','',$value));
+}
+
 function translate($word){
   switch (ra($word)) {
     case 'admin': return 'ادمین' ; break;

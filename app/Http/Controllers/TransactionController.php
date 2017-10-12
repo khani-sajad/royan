@@ -20,7 +20,33 @@ class TransactionController extends Controller
 
     public function store()
     {
-        dd('here');
+
+        $transaction = Validate::transaction();
+        if( request('cash_amount') || request('credit_amount') ){
+
+          //creating a transaction
+          $transaction['receiver_id'] = auth()->user()->userable_id;
+          $transaction['customer_id'] = session('customer_id');
+          $transaction['customer_type'] = session('customer_type');
+          Helper::check(\App\Transaction::create($transaction));
+
+          //reducing and incrementing credit
+          $credit = \App\Credit::find(session('credit_id'));
+          $amount = rc($credit->amount);
+          $amount -= rc(request('credit_amount'));
+          $amount += session('transaction_reward');
+          $credit->amount = number_format($amount);
+          Helper::check($credit->save());
+
+        }else {
+          Helper::flash_message(false);
+        }
+        session()->forget('customer_id');
+        session()->forget('customer_type');
+        session()->forget('credit_id');
+
+        Helper::flash_message(true);
+        return back();
     }
 
     public function show(Transaction $transaction)

@@ -116,4 +116,13 @@ class Validate extends Controller
         ]);
     }
 
+    public static function transaction()
+    {
+        return request()->validate([
+            "cash_amount" => "nullable|string|max:190",
+            "credit_amount" => "nullable|string|max:190",
+            "description" => "nullable|string|max:190",
+        ]);
+    }
+
 }
