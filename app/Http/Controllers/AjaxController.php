@@ -11,6 +11,9 @@ class AjaxController extends Controller
       $uid = request('uid');
       //card
       $card = \App\Card::where('uid',$uid)->first();
+      if(!$card){
+        return view('partials.card_not_found');
+      }
       $owner_type = strtolower(str_replace('App\\','',$card->cardable_type));
       $owner = $card->cardable;
       return view('partials.card',compact('card','owner','owner_type'));

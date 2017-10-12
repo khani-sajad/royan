@@ -7,6 +7,7 @@
     </label>
     <input value="{{old('uid')}}" type="text" class="form-control" id="uid" name="uid" autocomplete="off" autofocus>
   </fieldset>
+  {{-- <i class="fa fa-undo fa-2x"></i> --}}
 </form>
 
 <div class="update">

@@ -88,4 +88,4 @@
   </table>
 @endif
 
-<p class="h4 dinar text-primary mb-4">مشخصات دارنده کارت</p>
+<p class="h4 dinar text-primary mb-4">موجودی کارت</p>
