@@ -92,17 +92,27 @@
 
   <hr>
   <div class="row p-3">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <p class="h5 dinar text-primary mb-4">موجودی کارت</p>
       <span class="credit">{{$credit ? toman($credit->amount) : 0}}</span>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <p class="h5 dinar text-primary mb-4">امتیاز</p>
       <span class="credit">{{$credit ? $credit->points : 0 }}</span>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <p class="h5 dinar text-primary mb-4">تعداد خرید</p>
       <span class="credit">{{$credit ? $credit->shop_count : 0}}</span>
+    </div>
+    <div class="col-sm-3">
+      <p class="h5 dinar text-primary mb-4">مقدار خرید</p>
+      <span class="credit">{{toman(number_format($total_amount))}}</span>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-6 stars mt-5">
+      @for ($i = 1; $i <= 7; $i++)
+        <i id="{{$i}}" class="star fa fa-star-o fa-2x"></i>
+      @endfor
     </div>
   </div>
   <hr>

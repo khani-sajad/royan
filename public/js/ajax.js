@@ -26,6 +26,21 @@ $(document).on('submit','.getCardOwner',function (e) {
 
 
 /****************************************************************/
+/**Stars**/
+$(document).on('mouseover','i.star',function () {
+  var id = $(this).attr('id');
+  var stars = $('.stars').children();
+  stars.each(function (index) {
+    if (index < id) {
+      $(this).removeClass('fa-star-o').addClass('fa-star');
+    }
+  });
+});
+$(document).on('mouseout','.stars',function () {
+  $(this).children('i').removeClass('fa-star').addClass('fa-star-o');
+});
+
+/****************************************************************/
 
 function send_ajax(url,formData,target){
   $.ajaxSetup({

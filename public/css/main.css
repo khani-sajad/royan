@@ -36,6 +36,11 @@ i.small {font-size: 0.6em}
 .flash {position: fixed; bottom: 25px; left: 25px; z-index: 10; padding: 20px 50px}
 .credit { border: 2px solid #0083FF; padding: 10px 30px; margin:10px;}
 .mt30 {margin-top: 30px;}
+
+.stars i {
+  color: Gold; cursor: pointer;
+}
+
 /*=================== Dashboard =======================*/
 .dashboard {
   background: #16222A;
