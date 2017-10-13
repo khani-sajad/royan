@@ -6,10 +6,27 @@
 {{------------------------------------------------------------------------------------------}}
 
 
-<a href="{{url('/receiver/customers')}}" @if ($dashboard=='customers') {{'class=active'}} @endif>
-  <i class="fa fa-group ml-2"></i>
-  <span>مشتریان</span>
+@php
+  $open = in_array( $dashboard,['customers','legals'] )
+@endphp
+
+<a href="javascript:void(0)" class="mother"
+  data-role="{{ $open ? 'hide' : 'show'}}"
+  data-show="seeCustomers">
+  <i class="fa fa-users ml-2"></i>
+  <span> مشتریان </span>
+  <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
+<div id="seeCustomers" class="drop @if (!$open) {{'hidden'}} @endif">
+  <a href="{{url('/receiver/customers')}}" @if ($dashboard=='customers') {{'class=active'}} @endif>
+    <i class="fa fa-user ml-2"></i>
+    <span> حقیقی </span>
+  </a>
+  <a href="{{url('/receiver/legals')}}" @if ($dashboard=='legals') {{'class=active'}} @endif>
+    <i class="fa fa-vcard ml-2"></i>
+    <span> حقوقی </span>
+  </a>
+</div>
 
 
 {{------------------------------------------------------------------------------------------}}
@@ -60,6 +77,14 @@
     <span>مشتری حقوقی</span>
   </a>
 </div>
+
+{{--------------------------------------------------}}
+
+<a href="{{url('/receiver/accountancy')}}" @if ($dashboard=='accountancy') {{'class=active'}} @endif>
+  <i class="fa fa-calculator ml-2"></i>
+  <span>حسابداری</span>
+</a>
+
 
 {{--------------------------------------------------}}
 

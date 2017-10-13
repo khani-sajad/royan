@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -52,6 +53,14 @@ class DashboardController extends Controller
         case 'transactions_list':
           $transactions = \App\Transaction::where('receiver_id', auth()->user()->userable_id)->paginate(20);
           return view('home',compact('dashboard','dashboard_type','transactions'));
+          break;
+        case 'customers':
+          $customers = \App\Customer::where('registerby',auth()->id())->paginate(20);
+          return view('home',compact('dashboard','dashboard_type','customers'));
+          break;
+        case 'legals':
+          $legals = \App\Legal::where('registerby',auth()->id())->paginate(20);
+          return view('home',compact('dashboard','dashboard_type','legals'));
           break;
 
         default:
