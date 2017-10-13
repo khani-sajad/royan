@@ -32,7 +32,7 @@
   data-role="{{ $open ? 'hide' : 'show'}}"
   data-show="createUser">
   <i class="fa fa-user-plus ml-2"></i>
-  <span>ایجاد کاربر</span>
+  <span>ایجاد مشتری</span>
   <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
 <div id="createUser" class="drop @if (!$open) {{'hidden'}} @endif">
