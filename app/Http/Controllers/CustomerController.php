@@ -26,6 +26,7 @@ class CustomerController extends Controller
         $reference = request('is_reference') ? Validate::reference() : null;
 
         //customer
+        $customer['registerby'] = auth()->id();
         $customer_instance = Customer::create($customer);
         Helper::check($customer_instance);
 

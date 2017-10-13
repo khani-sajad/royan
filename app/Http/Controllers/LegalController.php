@@ -27,6 +27,7 @@ class LegalController extends Controller
         $reference = request('is_reference') ? Validate::reference() : null;
 
         //legal
+        $legal['registerby'] = auth()->id();
         $legal_instance = Legal::create($legal);
         Helper::check($legal_instance);
 
