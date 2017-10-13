@@ -22,7 +22,7 @@ class AjaxController extends Controller
 
       $owner_type = ra($card->cardable_type);
 
-      session(['customer_id' => $owner->id, 'customer_type' => $owner_type, 'credit_id' => $credit_id]);
+      session(['customer_id' => $owner->id, 'card_id' => $card->id, 'customer_type' => $owner_type, 'credit_id' => $credit_id]);
 
       return view('partials.card',compact('card','owner','owner_type','credit_amount'));
     }

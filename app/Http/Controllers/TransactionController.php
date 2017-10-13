@@ -32,13 +32,16 @@ class TransactionController extends Controller
 
           //reducing and incrementing credit
           $credit = \App\Credit::find(session('credit_id'));
-          $amount = rc($credit->amount);
-          $amount += 0.1 * ( rc(request('credit_amount')) + rc(request('cash_amount')) ); //HARDCODE
-          // $amount += session('transaction_reward');
+          $amount = $credit ? rc($credit->amount) : 0;
           $amount -= rc(request('credit_amount'));
+          $amount += 0.1 * ( rc(request('credit_amount')) + rc(request('cash_amount')) ); //HARDCODE
+          if (!$credit) {
+            $credit = new \App\Credit;
+            $credit->card_id = session('card_id');
+            $credit->receiver_id = auth()->user()->userable_id;
+          }
           $credit->amount = number_format($amount);
           Helper::check($credit->save());
-
         }else {
           Helper::flash(false);
         }
@@ -46,6 +49,7 @@ class TransactionController extends Controller
         session()->forget('customer_id');
         session()->forget('customer_type');
         session()->forget('credit_id');
+        session()->forget('card_id');
 
         Helper::flash(true);
         return back();
