@@ -32,7 +32,8 @@ class CreateReceiversTable extends Migration
             $table->string('commision_points_for_introducer')->nullable();
             $table->string('commision_percentage_for_network')->nullable();
             $table->string('commision_points_for_network')->nullable();
-            $table->string('monthly_support_for_network')->nullable();
+            $table->string('monthly_support_for_admin')->nullable();
+            $table->string('commision_percentage_for_admin')->nullable();
             $table->string('base_discount_percentage')->nullable();
             $table->string('base_point')->nullable();
             $table->string('number_of_lotteries')->nullable();
