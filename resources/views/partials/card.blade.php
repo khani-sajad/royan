@@ -70,16 +70,20 @@
         <th>موبایل</th>
         <th>شهر</th>
         <th>تاریخ تولد</th>
+        <th>مسافر/شهروند</th>
+        <th>عمده/خرده</th>
         <th>مرجع</th>
       </tr>
     </thead>
     <tbody>
       <tr class="text-center">
         <td>{{$owner->first_name . ' ' . $owner->last_name}}</td>
-        <td>{{$owner->national_code}}</td>
+        <td>{{$owner->national_code ? $owner->national_code : '-'}}</td>
         <td>{{$owner->mobile}}</td>
-        <td>{{$owner->city}}</td>
-        <td>{{$owner->birthday}}</td>
+        <td>{{$owner->city ? $owner->city : '-'}}</td>
+        <td>{{$owner->birthday ? $owner->birthday : '-'}}</td>
+        <td>{{$owner->person_type ? translate($owner->person_type) : '-'}}</td>
+        <td>{{$owner->buy_type ? translate($owner->buy_type) : '-'}}</td>
         <td>
           <i class="fa fa-{{$owner->is_reference ? 'check' : 'close'}} text-{{$owner->is_reference ? 'success' : 'danger'}}"></i>
         </td>
@@ -108,8 +112,8 @@
       <p class="h5 dinar text-primary mb-4">مقدار خرید</p>
       <span class="credit">{{toman(number_format($total_amount))}}</span>
     </div>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-6 stars mt-5">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 stars mt-5 text-center">
       @for ($i = 1; $i <= 7; $i++)
         <i id="{{$i}}" class="star fa fa-star-o fa-2x"></i>
       @endfor
