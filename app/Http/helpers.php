@@ -35,3 +35,13 @@ function toman($value)
 {
   return $value ? $value.' تومان' : $value;
 }
+
+function jumbo_error($message)
+{
+  $error = "
+    <div style='background:#E74430; padding:50px; text-align:center; font-size:2em; margin:50px;'>
+      $message
+    </div>
+  ";
+  return $error;
+}
