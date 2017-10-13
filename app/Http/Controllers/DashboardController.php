@@ -62,6 +62,10 @@ class DashboardController extends Controller
           $legals = \App\Legal::where('registerby',auth()->id())->paginate(20);
           return view('home',compact('dashboard','dashboard_type','legals'));
           break;
+        case 'base_management':
+          $receiver = \App\Receiver::find(auth()->user()->userable_id);
+          return view('home',compact('dashboard','dashboard_type','receiver'));
+          break;
 
         default:
           return view('home',compact('dashboard','dashboard_type'));

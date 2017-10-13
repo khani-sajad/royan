@@ -176,11 +176,17 @@
 
     {{-------------------------------------------------------------}}
 
-    <fieldset class="form-group col-sm-12">
-      <label for="monthly_support_for_network">
+    <fieldset class="form-group col-sm-6">
+      <label for="monthly_support_for_admin">
         مبلغ پشتیبانی ماهانه
       </label>
-      <input value="{{old('monthly_support_for_network')}}" type="text" class="form-control commo" id="monthly_support_for_network"  name="monthly_support_for_network">
+      <input value="{{old('monthly_support_for_admin')}}" type="text" class="form-control commo" id="monthly_support_for_admin"  name="monthly_support_for_admin">
+    </fieldset>
+    <fieldset class="form-group col-sm-6">
+      <label for="commision_percentage_for_admin">
+        درصد ثابت کمیسیون  پذیرنده برای رویان رسانه
+      </label>
+      <input value="{{old('commision_percentage_for_admin')}}" type="text" class="form-control commo" id="commision_percentage_for_admin"  name="commision_percentage_for_admin">
     </fieldset>
 
 

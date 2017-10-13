@@ -6,6 +6,14 @@
 {{------------------------------------------------------------------------------------------}}
 
 
+<a href="{{url('/receiver/base_management')}}" @if ($dashboard=='base_management') {{'class=active'}} @endif>
+  <i class="fa fa-edit ml-2"></i>
+  <span>ویرایش اطلاعات پایه</span>
+</a>
+
+{{------------------------------------------------------------------------------------------}}
+
+
 @php
   $open = in_array( $dashboard,['customers','legals'] )
 @endphp

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Receiver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Schema;
 
 class ReceiverController extends Controller
 {
@@ -62,7 +62,26 @@ class ReceiverController extends Controller
 
     public function update(Receiver $receiver)
     {
-        //
+        foreach ( request()->all() as $key => $value ) {
+          if(Schema::hasColumn('receivers',$key) && request($key) != $receiver->$key){
+            switch ($key) {
+              case 'business_name':
+              case 'register_number':
+              case 'register_number':
+                request()->validate([ $key => 'required' ]);
+                break;
+              case 'telegram_chanel':
+              case 'telegram_id':
+              case 'instagram_id':
+                request()->validate([ $key => 'required|unique:receivers' ]);
+                break;
+            }
+          }
+        }
+
+        Helper::check($receiver->update(request()->all()));
+        Helper::flash();
+        return back();
     }
 
     public function destroy(Receiver $receiver)
