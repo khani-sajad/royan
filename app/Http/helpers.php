@@ -15,6 +15,8 @@ function translate($word){
     case 'legal': return 'مشتری حقوقی' ; break;
     case 'card': return 'آیکیو کارت' ; break;
     case 'paper': return 'آیکیو برگ' ; break;
+    case 'passenger': return 'مسافر' ; break;
+    case 'citizen': return 'شهروند' ; break;
 
     default: return $word; break;
   }

@@ -24,7 +24,6 @@
         <td title="{{jDate::forge($transaction->created_at)->ago()}}" data-toggle="tooltip">
           {{jDate::forge($transaction->created_at)->format('time')}}
         </td>
-        {{-- <td>{{$transaction->created_at}}</td> --}}
       </tr>
     @endforeach
   </tbody>
