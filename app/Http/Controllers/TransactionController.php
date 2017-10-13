@@ -34,7 +34,7 @@ class TransactionController extends Controller
         }
 
         Helper::flash(true);
-        return back();
+        return redirect('/receiver/transactions_list');
     }
 
     public function show(Transaction $transaction)

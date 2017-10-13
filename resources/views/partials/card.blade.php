@@ -90,8 +90,22 @@
 
 @if ($owner_type  != 'receiver')
 
-  <p class="h4 dinar text-primary mb-4">موجودی کارت</p>
-  <span class="credit">{{toman($credit_amount)}}</span>
+  <hr>
+  <div class="row p-3">
+    <div class="col-sm-4">
+      <p class="h5 dinar text-primary mb-4">موجودی کارت</p>
+      <span class="credit">{{$credit ? toman($credit->amount) : 0}}</span>
+    </div>
+    <div class="col-sm-4">
+      <p class="h5 dinar text-primary mb-4">امتیاز</p>
+      <span class="credit">{{$credit ? $credit->points : 0 }}</span>
+    </div>
+    <div class="col-sm-4">
+      <p class="h5 dinar text-primary mb-4">تعداد خرید</p>
+      <span class="credit">{{$credit ? $credit->shop_count : 0}}</span>
+    </div>
+  </div>
+  <hr>
 
   <form class="row my-4" action="{{url('transactions')}}" method="post">
     {{csrf_field()}}

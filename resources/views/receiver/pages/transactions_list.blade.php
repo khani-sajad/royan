@@ -14,10 +14,10 @@
     @foreach ($transactions as $key => $transaction)
       <tr>
         <th scope="row">{{$key+1}}</th>
-        <td>{{translate($transaction->customer_type)}}</td>
-        <td>{{toman($transaction->cash_amount)}}</td>
-        <td>{{toman($transaction->credit_amount)}}</td>
-        <td>{{$transaction->description}}</td>
+        <td>{{ translate($transaction->customer_type) }}</td>
+        <td>{{ $transaction->cash_amount ? toman($transaction->cash_amount) : 0 }}</td>
+        <td>{{ $transaction->credit_amount ? toman($transaction->credit_amount) : 0 }}</td>
+        <td>{{ $transaction->description ? $transaction->description : '-' }}</td>
         <td title="{{jDate::forge($transaction->created_at)->format('%d %B %Y')}}" data-toggle="tooltip">
           {{jDate::forge($transaction->created_at)->format('date')}}
         </td>

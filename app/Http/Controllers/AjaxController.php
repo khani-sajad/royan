@@ -15,15 +15,15 @@ class AjaxController extends Controller
       //owner
       $owner = $card->cardable;
 
-      //credit (network for future)
+      //credit
       $credit = \App\Credit::where('card_id',$card->id)->where('receiver_id', auth()->user()->userable_id)->first();
-      $credit_amount = $credit ? $credit->amount : 0;
+
       $credit_id = $credit ? $credit->id : 0;
 
       $owner_type = ra($card->cardable_type);
 
       session(['customer_id' => $owner->id, 'card_id' => $card->id, 'customer_type' => $owner_type, 'credit_id' => $credit_id]);
 
-      return view('partials.card',compact('card','owner','owner_type','credit_amount'));
+      return view('partials.card',compact('card','owner','owner_type','credit'));
     }
 }

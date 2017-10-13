@@ -65,7 +65,7 @@ class Make extends Controller
         if (!$credit) {
           $credit = new \App\Credit;
           $credit->card_id = session('card_id');
-          $credit->receiver_id = $reciever->id;
+          $credit->receiver_id = $receiver->id;
         }
 
         $credit->amount = number_format($amount);
