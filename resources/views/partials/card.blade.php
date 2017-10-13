@@ -88,27 +88,35 @@
   </table>
 @endif
 
-<p class="h4 dinar text-primary mb-4">موجودی کارت</p>
-<span class="credit">{{toman($credit_amount)}}</span>
+@if ($owner_type  != 'receiver')
 
-<form class="row my-4" action="{{url('transactions')}}" method="post">
-  {{csrf_field()}}
-  <fieldset class="form-group col-sm-6">
-    <label for="cash_amount">
-      پرداخت حضوری به تومان
-    </label>
-    <input type="text" class="form-control commo" id="cash_amount" name="cash_amount">
-  </fieldset>
-  <fieldset class="form-group col-sm-6">
-    <label for="credit_amount">
-      پرداخت اعتباری به تومان
-    </label>
-    <input type="text" class="form-control commo" id="credit_amount" name="credit_amount" >
-  </fieldset>
-  <fieldset class="form-group col-sm-11">
-    <input type="text" class="form-control" id="description" name="description" placeholder="در صورت تمایل میتوانید توضیحات اضافه کنید">
-  </fieldset>
-  <fieldset class="form-group col-sm-1">
-    <button type="submit" class="btn btn-primary px-3 font-weight-bold">ثبت</button>
-  </fieldset>
-</form>
+  <p class="h4 dinar text-primary mb-4">موجودی کارت</p>
+  <span class="credit">{{toman($credit_amount)}}</span>
+
+  <form class="row my-4" action="{{url('transactions')}}" method="post">
+    {{csrf_field()}}
+    <fieldset class="form-group col-sm-6">
+      <label for="cash_amount">
+        پرداخت حضوری به تومان
+      </label>
+      <input type="text" class="form-control commo" id="cash_amount" name="cash_amount">
+    </fieldset>
+    <fieldset class="form-group col-sm-6">
+      <label for="credit_amount">
+        پرداخت اعتباری به تومان
+      </label>
+      <input type="text" class="form-control commo" id="credit_amount" name="credit_amount" >
+    </fieldset>
+    <fieldset class="form-group col-sm-11">
+      <input type="text" class="form-control" id="description" name="description" placeholder="در صورت تمایل میتوانید توضیحات اضافه کنید">
+    </fieldset>
+    <fieldset class="form-group col-sm-1">
+      <button type="submit" class="btn btn-primary px-3 font-weight-bold">ثبت</button>
+    </fieldset>
+  </form>
+@else
+  <div class="alert alert-warning p-4 text-center font-weight-bold mt-4">
+    <i class="fa fa-warning ml-2"></i>
+    دارنده کارت پذیرنده است
+  </div>
+@endif

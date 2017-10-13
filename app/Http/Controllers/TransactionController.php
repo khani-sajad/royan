@@ -33,15 +33,16 @@ class TransactionController extends Controller
           //reducing and incrementing credit
           $credit = \App\Credit::find(session('credit_id'));
           $amount = rc($credit->amount);
+          $amount += 0.1 * $amount; //HARDCODE
+          // $amount += session('transaction_reward');
           $amount -= rc(request('credit_amount'));
-          $amount += session('transaction_reward');
           $credit->amount = number_format($amount);
           Helper::check($credit->save());
 
         }else {
           Helper::flash(false);
         }
-        
+
         session()->forget('customer_id');
         session()->forget('customer_type');
         session()->forget('credit_id');
