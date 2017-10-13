@@ -5,11 +5,14 @@ $(document).ready(function () {
 $(document).on('submit','.getCardOwner',function (e) {
   e.preventDefault();
   $('.spinner').show();
-
   var uid = $('input#uid').val();
+  var mobile = $('input#mobile').val();
+  var national_code = $('input#national_code').val();
   var token = $('input[name="_token"]').val();
   var formData = {
     uid : uid,
+    mobile : mobile,
+    national_code : national_code,
     _token : token
   }
 

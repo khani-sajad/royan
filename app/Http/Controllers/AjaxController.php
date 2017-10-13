@@ -8,10 +8,20 @@ class AjaxController extends Controller
 {
     public function get_card_owner()
     {
-      $uid = request('uid');
       //card
-      $card = \App\Card::where('uid',$uid)->first();
+      if ( $uid = request('uid') ) {
+        $card = \App\Card::where('uid',$uid)->first();
+      }elseif ( $mobile = request('mobile') ) {
+        $customer = \App\Customer::where('mobile',$mobile)->first();
+        $card = $customer ? $customer->card : null;
+      }elseif ( $national_code = request('national_code') ) {
+        $customer = \App\Customer::where('national_code',$national_code)->first();
+        $card = $customer ? $customer->card : null;
+      }else {
+        return view('partials.card_not_found');
+      }
       if(!$card) return view('partials.card_not_found');
+
       //owner
       $owner = $card->cardable;
 
