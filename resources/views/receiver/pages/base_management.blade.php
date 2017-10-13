@@ -154,33 +154,60 @@
 
     {{-------------------------------------------------------------}}
 
-    <fieldset class="form-group col-sm-4">
+    {{-------------------------------------------------------------}}
+
+    <fieldset class="form-group col-sm-6">
       <label for="base_discount_percentage">
         درصد تخفیف پایه پذیرنده
       </label>
-      <input value="{{$receiver->base_discount_percentage}}" type="text" class="form-control" id="base_discount_percentage"  name="base_discount_percentage">
+      <input value="{{old('base_discount_percentage')}}" type="text" class="form-control" id="base_discount_percentage"  name="base_discount_percentage">
     </fieldset>
+    <fieldset class="form-group col-sm-6">
+      <label for="base_gift_percentage">
+        درصد هدیه پایه پذیرنده
+      </label>
+      <input value="{{old('base_gift_percentage')}}" type="text" class="form-control" id="base_gift_percentage"  name="base_discount_percentage">
+    </fieldset>
+
+
+    {{-------------------------------------------------------------}}
+
+
     <fieldset class="form-group col-sm-4">
       <label for="base_point">
         امتیاز پایه خرید
       </label>
-      <input value="{{$receiver->number_of_lotteries}}" type="text" class="form-control" id="number_of_lotteries"  name="base_point">
+      <input value="{{old('base_point')}}" type="text" class="form-control" id="base_point"  name="base_point">
     </fieldset>
     <fieldset class="form-group col-sm-4">
-      <label for="number_of_lotteries">
-        تعداد قرعه کشی سالانه
+      <label for="for_each">
+        به ازای چند خرید
       </label>
-      <input value="{{$receiver->number_of_lotteries}}" type="text" class="form-control" id="number_of_lotteries"  name="number_of_lotteries">
+      <input value="{{old('for_each')}}" type="text" class="form-control" id="for_each"  name="for_each">
     </fieldset>
+    <fieldset class="form-group col-sm-4">
+      <label for="min_amount">
+        حداقل مقدار خرید
+      </label>
+      <input value="{{old('min_amount')}}" type="text" class="form-control" id="min_amount"  name="min_amount">
+    </fieldset>
+
 
     {{-------------------------------------------------------------}}
 
     <fieldset class="form-group col-sm-12">
+      <label for="number_of_lotteries">
+        تعداد قرعه کشی سالانه
+      </label>
+      <input value="{{old('number_of_lotteries')}}" type="text" class="form-control" id="number_of_lotteries"  name="number_of_lotteries">
+    </fieldset>
+    <fieldset class="form-group col-sm-12">
       <label for="awards_list">
         فهرست جوایز
       </label>
-      <textarea class="form-control" id="awards_list"  name="awards_list">{{$receiver->awards_list}}</textarea>
+      <textarea class="form-control" id="awards_list"  name="awards_list">{{old('awards_list')}}</textarea>
     </fieldset>
+
 
     {{-------------------------------------------------------------}}
 
