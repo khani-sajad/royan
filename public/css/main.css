@@ -18,7 +18,7 @@ body {font-family: 'Yekan'; overflow-x: hidden;}
 button {cursor: pointer}
 button.link {background: none; border:none;}
 
-a {-webkit-transition: 1s; transition: 1s;}
+a {-webkit-transition: 0.5s; transition: 0.5s;}
 
 th {text-align: center;}
 
@@ -47,19 +47,19 @@ option {
 
 /*=================== Dashboard =======================*/
 .dashboard {
-  background: #16222A;
+  background: #50ada3;
   padding: 0;
   margin: 0;
   min-height: 100vh;
 }
 .dashboard a {
-  /*font-weight: bold;*/
-  color: snow;
+  color: #202020;
   display: block;
   padding: 10px;
 }
 .dashboard a.active {
-  background-color: #3e4444;
+  background-color: #16222A;
+  color: snow;
 }
 
 .dashboard a:hover {
@@ -79,4 +79,9 @@ option {
 }
 .drop a {
   padding-right: 30px;
+}
+
+/*=================== Top Bar =======================*/
+.topbar {
+  background-color: Lavender;
 }
