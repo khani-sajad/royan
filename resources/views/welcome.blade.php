@@ -1,95 +1,54 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>صفحه ورود به اپلیکیشن رویان</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
 
-        <title>Laravel</title>
+<body>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+  <div class="wrapper">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <div class="socials">
+      <a target="_blank" href="http://instagram.com"><i class="fa fa-instagram fa-3x"></i></a>
+      <a target="_blank" href="http://telegram.me"><i class="fa fa-telegram fa-3x"></i></a>
+      <a target="_blank" href="http://facebook.com"><i class="fa fa-facebook fa-3x"></i></a>
+      <a target="_blank" href="http://twitter.com"><i class="fa fa-twitter fa-3x"></i></a>
+    </div>
 
-            .full-height {
-                height: 100vh;
-            }
+	<div class="container">
+		<h1>رویان رسانه</h1>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+		<form class="form">
+			<input type="text" placeholder="نام کاربری">
+			<input type="password" placeholder="گذرواژه">
+			<button type="submit" id="login-button">ورود</button>
+		</form>
+	</div>
 
-            .position-ref {
-                position: relative;
-            }
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+  <div class="register">
+    <a href="void::javascript(0)" id="register">ثبت نام</a>
+  </div>
 
-            .content {
-                text-align: center;
-            }
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-            .title {
-                font-size: 84px;
-            }
+    <script  src="js/login.js"></script>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <!-- <a href="{{ route('register') }}">Register</a> -->
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Royan Rasaneh
-                </div>
-
-                <div class="links">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                </div>
-            </div>
-        </div>
-    </body>
+</body>
 </html>
