@@ -10,6 +10,9 @@
 
     <title>{{ config('app.name', 'CodeAmooz') }}</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="{{asset('img/favicon.png')}}">
+
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
