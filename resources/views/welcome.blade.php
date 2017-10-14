@@ -38,9 +38,9 @@
 			<input type="password" name="password" placeholder="گذرواژه">
 			<button type="submit" id="login-button">ورود</button>
       <br><br>
-      <label for="checkbox" style="font-family:yekan;">مرا به خاطر بسپار</label>
-      <i id="check" class="fa fa-square-o" style="margin-left:8px"></i>
-      <input type="checkbox" id="checkbox" name="remember" checked="false" style="display:none">
+      <label for="checkbox">مرا به خاطر بسپار</label>
+      <i id="check" class="fa fa-square-o"></i>
+      <input type="checkbox hidden" id="checkbox" name="remember" checked="false" style="display:none">
 		</form>
 
 	</div>
@@ -51,13 +51,13 @@
     @endfor
 	</ul>
 
-  <div class="register">
+  {{-- <div class="register">
     <a href="void::javascript(0)" id="register">ثبت نام</a>
-  </div>
+  </div> --}}
 
 </div>
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script src="js/login.js"></script>
+<script src="{{ asset('js/login.js') }}"></script>
 
 </body>
 </html>

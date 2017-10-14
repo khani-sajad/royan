@@ -114,8 +114,14 @@ form input:focus::placeholder{
   color: white;
 }
 
-label, i#check{
+label{
+  font-family: 'yekan';
   cursor: pointer;
+}
+
+i#check {
+  cursor: pointer;
+  margin-left: 8px;
 }
 
 form input[type=checkbox]{
@@ -262,6 +268,7 @@ form button:hover {
 .socials a {
   color: white;
   margin: 0px 30px;
+  text-decoration: none;
 }
 .socials a:hover {
   color: #53e3a6;
