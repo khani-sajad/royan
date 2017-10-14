@@ -1,9 +1,3 @@
-$("#login-button").click(function(event){
-    event.preventDefault();
-
-  $('form').fadeOut(500);
-  $('.wrapper').addClass('form-success');
-});
 
 $('#check, label').click(function () {
  if ($('#check').hasClass('fa-square-o')) {
