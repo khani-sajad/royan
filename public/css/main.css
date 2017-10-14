@@ -41,6 +41,10 @@ i.small {font-size: 0.6em}
   color: Gold; cursor: pointer;
 }
 
+option {
+  font-size: 0.1em;
+}
+
 /*=================== Dashboard =======================*/
 .dashboard {
   background: #16222A;

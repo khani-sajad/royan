@@ -5,6 +5,7 @@
   <title>صفحه ورود به اپلیکیشن رویان</title>
   <link rel="stylesheet" href="{{asset('css/login.css')}}">
   <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+  <link rel="icon" href="{{asset('img/favicon.png')}}">
 </head>
 
 <body>
