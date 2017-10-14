@@ -10,7 +10,7 @@
       </div>
       <div class="col-lg-10 col-md-9 col-sm-8 inside">
         <div class="row py-1 px-3 topbar" dir="ltr">
-          <img class="" src="{{asset('img/logo.png')}}" alt="آیکیو کارت" width="37px">
+          <img src="{{asset('img/logo.png')}}" alt="آیکیو کارت" width="37px" height="37px">
         </div>
         <div class="my-3">
           @include('partials.errors')
