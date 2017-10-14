@@ -61,7 +61,6 @@ body :-ms-input-placeholder {
   text-align: center;
 }
 .container h1 {
-  padding-top: 10vh;
   font-family: 'yekan';
   font-size: 40px;
   -webkit-transition-duration: 1s;
@@ -96,6 +95,7 @@ form input[type=text], form input[type=password] {
 }
 
 form input::placeholder{
+  font-family: 'yekan';
   color: #e7e7e7;
   font-size: 0.9em;
 }

@@ -12,10 +12,21 @@
   <div class="wrapper">
 
     <div class="socials">
-      <a target="_blank" href="http://instagram.com"><i class="fa fa-instagram fa-3x"></i></a>
-      <a target="_blank" href="http://telegram.me"><i class="fa fa-telegram fa-3x"></i></a>
-      <a target="_blank" href="http://facebook.com"><i class="fa fa-facebook fa-3x"></i></a>
-      <a target="_blank" href="http://twitter.com"><i class="fa fa-twitter fa-3x"></i></a>
+      <a target="_blank" href="http://iqcard.ir">
+        <i class="fa fa-globe fa-3x"></i>
+      </a>
+      <a target="_blank" href="https://www.instagram.com/iqcard.ir/">
+        <i class="fa fa-instagram fa-3x"></i>
+      </a>
+      <a target="_blank" href="http://telegram.me/iqcard">
+        <i class="fa fa-telegram fa-3x"></i>
+      </a>
+      <a target="_blank" href="http://twitter.com">
+        <i class="fa fa-twitter fa-3x"></i>
+      </a>
+      <a target="_blank" href="http://facebook.com">
+        <i class="fa fa-facebook fa-3x"></i>
+      </a>
     </div>
 
 	<div class="container">
@@ -27,24 +38,17 @@
 			<input type="password" name="password" placeholder="گذرواژه">
 			<button type="submit" id="login-button">ورود</button>
       <br><br>
-      <label for="checkbox" style="font-family:yekan">مرا به خاطر بسپار</label>
-      <i id="check" class="fa fa-square-o ml-2"></i>
+      <label for="checkbox" style="font-family:yekan;">مرا به خاطر بسپار</label>
+      <i id="check" class="fa fa-square-o" style="margin-left:8px"></i>
       <input type="checkbox" id="checkbox" name="remember" checked="false" style="display:none">
 		</form>
 
 	</div>
 
 	<ul class="bg-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+    @for ($i = 0; $i < 10; $i++)
+      <li></li>
+    @endfor
 	</ul>
 
   <div class="register">
