@@ -21,11 +21,17 @@
 	<div class="container">
 		<h1>رویان رسانه</h1>
 
-		<form class="form">
-			<input type="text" placeholder="نام کاربری">
-			<input type="password" placeholder="گذرواژه">
+		<form class="form" action="{{ route('login') }}" method="post" >
+      {{ csrf_field() }}
+			<input type="text" name="username" value="{{ old('username') }}" placeholder="نام کاربری">
+			<input type="password" name="password" placeholder="گذرواژه">
 			<button type="submit" id="login-button">ورود</button>
+      <br><br>
+      <label for="checkbox" style="font-family:yekan">مرا به خاطر بسپار</label>
+      <i id="check" class="fa fa-square-o ml-2"></i>
+      <input type="checkbox" id="checkbox" name="remember" checked="false" style="display:none">
 		</form>
+
 	</div>
 
 	<ul class="bg-bubbles">
