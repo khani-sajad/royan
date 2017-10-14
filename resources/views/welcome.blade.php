@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>صفحه ورود به اپلیکیشن رویان</title>
-  <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{asset('css/login.css')}}">
+  <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 </head>
 
 <body>
@@ -52,9 +52,8 @@
   </div>
 
 </div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-    <script  src="js/login.js"></script>
+<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+<script src="js/login.js"></script>
 
 </body>
 </html>

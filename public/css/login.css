@@ -1,10 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
-
-@font-face {
-    font-family: 'yekan';
-    src:url('fonts/yekan.woff') format('woff'),
-          url('fonts/yekan.ttf') format('truetype');
-}
+@font-face { font-family: 'Yekan'; src: url('../fonts/Yekan.woff'); }
 
 * {
   box-sizing: border-box;
@@ -13,7 +8,7 @@
   font-weight: 300;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'yekan','Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
 }

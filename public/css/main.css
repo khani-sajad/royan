@@ -1,13 +1,13 @@
 /*=================== Fonts =======================*/
 @font-face { font-family: 'Calibri'; src: url('../fonts/Calibri.ttf'); }
-@font-face { font-family: 'Yekan'; src: url('../fonts/Yekan.ttf'); }
+@font-face { font-family: 'Yekan'; src: url('../fonts/Yekan.woff'); }
 @font-face { font-family: 'Dinar'; src: url('../fonts/Dinar.ttf'); }
 
 .dinar { font-family: 'Dinar' }
 .yekan { font-family: 'Yekan' }
 .calibri { font-family: 'Calibri' }
 
-body {font-family: 'Calibri'; overflow-x: hidden;}
+body {font-family: 'Yekan'; overflow-x: hidden;}
 
 /*=================== Generals =======================*/
 .tooltip-inner { font-family: 'Dinar';}
@@ -49,7 +49,7 @@ i.small {font-size: 0.6em}
   min-height: 100vh;
 }
 .dashboard a {
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: snow;
   display: block;
   padding: 10px;
@@ -57,9 +57,7 @@ i.small {font-size: 0.6em}
 .dashboard a.active {
   background-color: #3e4444;
 }
-.dashboard a span {
-  font-weight: bold;
-}
+
 .dashboard a:hover {
   color: snow;
   text-decoration: none;
