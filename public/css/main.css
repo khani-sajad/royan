@@ -40,9 +40,8 @@ i.small {font-size: 0.6em}
 .stars i {
   color: Gold; cursor: pointer;
 }
-
-option {
-  font-size: 0.1em;
+select {
+  font-family: 'Calibri'
 }
 
 /*=================== Dashboard =======================*/
