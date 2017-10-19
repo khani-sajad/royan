@@ -164,7 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Morilog\Jalali\JalaliServiceProvider::class,
-
+        App\Providers\BladeDirectivesServiceProvider::class,
 
         /*
          * Package Service Providers...

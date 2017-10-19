@@ -9,12 +9,15 @@
 @include('dashboard.receivers.manage_customers')
 @include('dashboard.receivers.manage_transactions')
 @include('dashboard.receivers.manage_offers')
-@include('dashboard.receivers.presents')
 @include('dashboard.receivers.manage_receiver_organ')
 @include('dashboard.receivers.support')
 @include('dashboard.receivers.reports')
 @include('dashboard.receivers.accountancy')
 @include('dashboard.receivers.online_conversation')
+
+@reference
+    @include('dashboard.receivers.presents')
+@endreference
 
 
 {{------------------------------------------------------------------------------------------}}
