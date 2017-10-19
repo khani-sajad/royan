@@ -10,7 +10,7 @@
   <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
 <div id="manageTransactions" class="drop @if (!$open) {{'hidden'}} @endif">
-  <a href="{{url('/receivers/new_transaction')}}" @if ($dashboard=='new_transaction') {{'class=active'}} @endif>
+  <a href="{{url('/receiver/new_transaction')}}" @if ($dashboard=='new_transaction') {{'class=active'}} @endif>
     <i class="fa fa-plus pl-1"></i>
     <span> ثبت تراکنش آیکیو کارت </span>
   </a>
@@ -22,7 +22,7 @@
     <i class="fa fa-plus pl-1"></i>
     <span> ثبت تراکنش اقساط </span>
   </a>
-  <a href="{{url('/receivers/transactions_list')}}" @if ($dashboard=='transactions_list') {{'class=active'}} @endif>
+  <a href="{{url('/receiver/transactions_list')}}" @if ($dashboard=='transactions_list') {{'class=active'}} @endif>
     <i class="fa fa-eye pl-1"></i>
     <span> مشاهده تراکنش&zwnj;های آیکیو کارت </span>
   </a>
