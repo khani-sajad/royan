@@ -14,7 +14,7 @@
         <td>{{$offer->subject}}</td>
         <td>{{$offer->since ? $offer->since : '-'}}</td>
         <td>{{$offer->untill ? $offer->untill : '-'}}</td>
-        <td>{{offer_type($offer->type)}}</td>
+        <td>{{$offer->type ? translate_number($offer->type,'offer') : '-' }}</td>
         <td class="text-center">
           <a href="#">
             <i class="fa fa-list" data-toggle="tooltip" title="جزییات"></i>

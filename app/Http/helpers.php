@@ -1,47 +1,53 @@
 <?php
 function ra($value){
-  return strtolower(str_replace('App\\','',$value));
+    return strtolower(str_replace('App\\','',$value));
 }
 
 function rc($value){
-  return (int) strtolower(str_replace(',','',$value));
+    return (int) strtolower(str_replace(',','',$value));
 }
 
 function translate($word){
-  switch (ra($word)) {
-    case 'admin': return 'ادمین' ; break;
-    case 'customer': return 'مشتری حقیقی' ; break;
-    case 'receiver': return 'پذیرنده' ; break;
-    case 'legal': return 'مشتری حقوقی' ; break;
-    case 'card': return 'آیکیو کارت' ; break;
-    case 'paper': return 'آیکیو برگ' ; break;
-    case 'passenger': return 'مسافر' ; break;
-    case 'citizen': return 'شهروند' ; break;
+    switch (ra($word)) {
+        case 'admin': return 'ادمین' ; break;
+        case 'customer': return 'مشتری حقیقی' ; break;
+        case 'receiver': return 'پذیرنده' ; break;
+        case 'legal': return 'مشتری حقوقی' ; break;
+        case 'card': return 'آیکیو کارت' ; break;
+        case 'paper': return 'آیکیو برگ' ; break;
+        case 'passenger': return 'مسافر' ; break;
+        case 'citizen': return 'شهروند' ; break;
 
-    default: return $word; break;
-  }
+        default: return $word; break;
+    }
 }
 
-function offer_type($type){
-  switch ($type) {
-    case '1': return 'عمومی' ; break;
-    case '2': return 'مرجع' ; break;
+function translate_number($value,$type)
+{
+    switch ($type) {
+        case 'buy_type':
+        if ( $value == 1 ) return 'عمده' ;
+        if ( $value == 2 ) return 'خرده' ;
+        break;
 
-    default: return ''; break;
-  }
+        case 'offer':
+        return $value == 2 ? 'مرجع' : 'عمومی'; break;
+
+        default: return $value; break;
+    }
 }
 
 function toman($value)
 {
-  return $value ? $value.' تومان' : $value;
+    return $value ? $value.' تومان' : $value;
 }
 
 function jumbo_error($message)
 {
-  $error = "
+    $error = "
     <div style='background:#E74430; padding:50px; text-align:center; font-size:2em; margin:50px;'>
-      $message
+    $message
     </div>
-  ";
-  return $error;
+    ";
+    return $error;
 }

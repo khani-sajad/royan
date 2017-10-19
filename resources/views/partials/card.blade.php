@@ -83,7 +83,7 @@
         <td>{{$owner->city ? $owner->city : '-'}}</td>
         <td>{{$owner->birthday ? $owner->birthday : '-'}}</td>
         <td>{{$owner->person_type ? translate($owner->person_type) : '-'}}</td>
-        <td>{{$owner->buy_type ? translate($owner->buy_type) : '-'}}</td>
+        <td>{{$owner->buy_type ? translate_number($owner->buy_type,'buy_type') : '-'}}</td>
         <td>
           <i class="fa fa-{{$owner->is_reference ? 'check' : 'close'}} text-{{$owner->is_reference ? 'success' : 'danger'}}"></i>
         </td>
