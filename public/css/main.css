@@ -50,15 +50,17 @@ select {
   padding: 0;
   margin: 0;
   min-height: 100vh;
+  font-size:0.95em;
 }
 .dashboard a {
   color: #202020;
   display: block;
-  padding: 10px;
+  padding: 10px 6px;
 }
 .dashboard a.active {
   background-color: #16222A;
   color: snow;
+  font-size: 0.9em;
 }
 
 .dashboard a:hover {
@@ -77,7 +79,11 @@ select {
   transform: rotate(-180deg);
 }
 .drop a {
-  padding-right: 30px;
+  padding-right: 12px;
+}
+
+a.mother {
+  font-weight: bolder;
 }
 
 /*=================== Top Bar =======================*/
