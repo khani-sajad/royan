@@ -21,6 +21,7 @@ class Validate extends Controller
             "marriage_date" => "nullable",
             "person_type" => "nullable",
             "buy_type" => "nullable",
+            "is_reference" => "nullable",
         ]);
     }
 
