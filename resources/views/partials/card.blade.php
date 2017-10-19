@@ -9,9 +9,9 @@
   </thead>
   <tbody>
     <tr class="text-center">
-      <td>{{$card->number}}</td>
-      <td>{{translate($card->cardable_type)}}</td>
-      <td>{{translate($card->type)}}</td>
+      <td>{{ $card->number }}</td>
+      <td>{{ translate($card->cardable_type) }}</td>
+      <td>{{ translate($card->type) }}</td>
     </tr>
   </tbody>
 </table>
@@ -29,9 +29,9 @@
     </thead>
     <tbody>
       <tr class="text-center">
-        <td>{{$owner->business_name}}</td>
-        <td>{{$owner->manager_name}}</td>
-        <td>{{$owner->guild}}</td>
+        <td>{{ $owner->business_name ? $owner->business_name : '-' }}</td>
+        <td>{{ $owner->manager_name ? $owner->manager_name : '-' }}</td>
+        <td>{{ $owner->guild ? $owner->guild : '' }}</td>
         <td>
           <i class="fa fa-{{$owner->is_reference ? 'check' : 'close'}} text-{{$owner->is_reference ? 'success' : 'danger'}}"></i>
         </td>
@@ -51,10 +51,10 @@
     </thead>
     <tbody>
       <tr class="text-center">
-        <td>{{$owner->company_name}}</td>
-        <td>{{$owner->manager_name}}</td>
-        <td>{{$owner->guild}}</td>
-        <td>{{$owner->telephone}}</td>
+        <td>{{ $owner->company_name ? $owner->company_name : '-' }}</td>
+        <td>{{ $owner->manager_name ? $owner->manager_name : '-' }}</td>
+        <td>{{ $owner->guild ? $owner->guild : '-' }}</td>
+        <td>{{ $owner->telephone ? $owner->telephone : '-' }}</td>
         <td>
           <i class="fa fa-{{$owner->is_reference ? 'check' : 'close'}} text-{{$owner->is_reference ? 'success' : 'danger'}}"></i>
         </td>
@@ -77,13 +77,13 @@
     </thead>
     <tbody>
       <tr class="text-center">
-        <td>{{$owner->first_name . ' ' . $owner->last_name}}</td>
-        <td>{{$owner->national_code ? $owner->national_code : '-'}}</td>
-        <td>{{$owner->mobile}}</td>
-        <td>{{$owner->city ? $owner->city : '-'}}</td>
-        <td>{{$owner->birthday ? $owner->birthday : '-'}}</td>
-        <td>{{$owner->person_type ? translate($owner->person_type) : '-'}}</td>
-        <td>{{$owner->buy_type ? translate_number($owner->buy_type,'buy_type') : '-'}}</td>
+        <td>{{ ( $owner->first_name || $owner->last_name ) ? $owner->first_name . ' ' . $owner->last_name : '-' }}</td>
+        <td>{{ $owner->national_code ? $owner->national_code : '-' }}</td>
+        <td>{{ $owner->mobile }}</td>
+        <td>{{ $owner->city ? $owner->city : '-' }}</td>
+        <td>{{ $owner->birthday ? $owner->birthday : '-' }}</td>
+        <td>{{ $owner->person_type ? translate($owner->person_type) : '-' }}</td>
+        <td>{{ $owner->buy_type ? translate_number($owner->buy_type,'buy_type') : '-' }}</td>
         <td>
           <i class="fa fa-{{$owner->is_reference ? 'check' : 'close'}} text-{{$owner->is_reference ? 'success' : 'danger'}}"></i>
         </td>
