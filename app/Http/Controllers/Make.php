@@ -12,6 +12,17 @@ class Make extends Controller
         $reference['referencable_type'] = 'App\\'.$type;
         $reference_instance = \App\Reference::create($reference);
         Helper::check($reference_instance);
+
+        $bargs = $reference['dedicated_cards'];
+        $first_undedicated = \App\Barg::first_undedicated();
+        $barg_number = $first_undedicated->number;
+        for ($i=0; $i <$bargs ; $i++) {
+            $barg = \App\Barg::where('number', $barg_number)->first();
+            $barg->reference_id = $reference_instance->id;
+            $barg->save();
+            $barg_number++;
+        }
+
     }
 
     public static function card($card, $id, $type)
@@ -52,7 +63,7 @@ class Make extends Controller
 
         //check credit
         if( $credit_amount > $amount  ){
-          die(jumbo_error('اعتبار شما کافی نیست'));
+            die(jumbo_error('اعتبار شما کافی نیست'));
         }
 
         //calculatioins
@@ -63,9 +74,9 @@ class Make extends Controller
         $shop_count++;
 
         if (!$credit) {
-          $credit = new \App\Credit;
-          $credit->card_id = session('card_id');
-          $credit->receiver_id = $receiver->id;
+            $credit = new \App\Credit;
+            $credit->card_id = session('card_id');
+            $credit->receiver_id = $receiver->id;
         }
 
         $credit->amount = number_format($amount);

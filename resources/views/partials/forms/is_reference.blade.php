@@ -13,13 +13,14 @@
             <p class="dedicated-cards-info col-sm-5 text-info">
 
             </p>
-            <span id="bargFrom" class="hidden" data-value="1100010"></span>
+            <span id="bargFrom" class="hidden" data-value="{{$barg_from}}"></span>
         </div>
 
         <div class="alert alert-info">
             <ul>
-                <li>شما <span>80</span> آیکیوبرگ استفاده نشده دارید. </li>
-                <li> شماره آیکیو برگ ها از <span>1100010</span> تا <span>1100089</span> هستند. </li>
+                <li>تا به حال <span>{{$total_bargs}}</span> آیکیوبرگ به شما اختصاص داده شده است. </li>
+                <li>شما <span>{{$barg_untill - $barg_from + 1}}</span> آیکیوبرگ دارید، که به کسی اختصاص داده نشده&zwnj;اند. </li>
+                <li> شماره آیکیو برگ های اختصاص داده نشده، از <span>{{$barg_from}}</span> تا <span>{{$barg_untill}}</span> هستند. </li>
             </ul>
         </div>
     </div>
