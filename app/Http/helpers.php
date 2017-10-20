@@ -51,3 +51,12 @@ function jumbo_error($message)
     ";
     return $error;
 }
+
+function reference_name($id)
+{
+    $ref = \App\Reference::find($id);
+    $person = $ref->referencable;
+    if ( isset( $person->manager_name ) ) return $person->manager_name;
+    if ( isset( $person->first_name ) ) return $person->first_name . ' ' . $person->last_name ;
+    return '?';
+}

@@ -34,9 +34,12 @@ class DashboardController extends Controller
                 break;
             case 'legal_customer':
             case 'real_customer':
-                $barg_from = 1100010;
-                $barg_untill = 1100089;
-                return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill'));
+                $ud = \App\Barg::undedicateds();
+                $undedicateds = end($ud);
+                $barg_from = array_shift($undedicateds)->number;
+                $barg_untill = end($undedicateds)->number;
+                $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
+                return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
                 break;
             default:
                 return view('home',compact('dashboard','dashboard_type'));
@@ -80,6 +83,10 @@ class DashboardController extends Controller
                 $barg_untill = end($undedicateds)->number;
                 $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
                 return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
+                break;
+            case 'iq_bargs':
+                $bargs = \App\Receiver::find(auth()->user()->userable_id)->bargs;
+                return view('home',compact('dashboard','dashboard_type','bargs'));
                 break;
 
             default:

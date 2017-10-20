@@ -7,6 +7,7 @@
 
 
 @include('dashboard.receivers.manage_customers')
+@include('dashboard.receivers.manage_iq_bargs')
 @include('dashboard.receivers.manage_transactions')
 @include('dashboard.receivers.manage_offers')
 @include('dashboard.receivers.manage_receiver_organ')

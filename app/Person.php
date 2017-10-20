@@ -18,6 +18,11 @@ class Person extends Model
         return $this->morphMany(Barg::class,'registered_for');
     }
 
+    public function references()
+    {
+        return $this->morphMany(Reference::class,'referencable');
+    }
+
     public function transactions()
     {
       return $this->hasMany(Transaction::class);
