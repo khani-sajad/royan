@@ -45,4 +45,19 @@ class AjaxController extends Controller
 
       return view('partials.card',compact('card','owner','owner_type','credit','total_amount'));
     }
+
+    public function get_barg_details()
+    {
+        $uid = request('uid');
+        $barg = \App\Barg::where('uid',$uid)->first();
+
+        if(!$barg) return view('partials.card_not_found');
+        if(!$barg->reference_id) return view('partials.card_not_dedicated');
+
+        $reference_instance = \App\Reference::find($barg->reference_id);
+        $owner_type = ra($reference_instance->referencable_type);
+        $reference = $reference_instance->referencable;
+
+        return view('partials.barg',compact('reference','owner_type','barg'));
+    }
 }

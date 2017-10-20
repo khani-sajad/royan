@@ -16,11 +16,27 @@ $(document).on('submit','.getCardOwner',function (e) {
     _token : token
   }
 
-  // var url = ;
   var target = $('.update');
   send_ajax(window.location,formData,target);
 
   $('form.getCardOwner').slideUp();
+
+});
+
+$(document).on('submit','.getBargOwner',function (e) {
+  e.preventDefault();
+  $('.spinner').show();
+  var uid = $('input#uid').val();
+  var token = $('input[name="_token"]').val();
+  var formData = {
+    uid : uid,
+    _token : token
+  }
+
+  var target = $('.update');
+  send_ajax(window.location,formData,target);
+
+  $('form.getBargOwner').slideUp();
 
 });
 

@@ -1,5 +1,5 @@
 @php
-  $open = in_array( $dashboard,['new_transaction','z2','z3','transactions_list','z5','z6'] )
+  $open = in_array( $dashboard,['new_transaction','new_barg_transaction','z3','transactions_list','z5','z6'] )
 @endphp
 <hr class="p-0 m-0">
 <a href="javascript:void(0)" class="mother"
@@ -14,7 +14,7 @@
     <i class="fa fa-plus pl-1"></i>
     <span> ثبت تراکنش آیکیو کارت </span>
   </a>
-  <a href="{{url('xxx')}}" @if ($dashboard=='xxx') {{'class=active'}} @endif>
+  <a href="{{url('/receiver/new_barg_transaction')}}" @if ($dashboard=='new_barg_transaction') {{'class=active'}} @endif>
     <i class="fa fa-plus pl-1"></i>
     <span> ثبت تراکنش آیکیو برگ </span>
   </a>

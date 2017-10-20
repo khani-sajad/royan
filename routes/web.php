@@ -24,3 +24,4 @@ Route::get('/receiver/{dashboard}', 'DashboardController@receiver');
 
 //Ajax Requests
 Route::post('/receiver/new_transaction', 'AjaxController@get_card_owner');
+Route::post('/receiver/new_barg_transaction', 'AjaxController@get_barg_details');
