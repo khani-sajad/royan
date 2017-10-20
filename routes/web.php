@@ -13,6 +13,7 @@ Route::resource('legals','LegalController');
 Route::resource('offers','OfferController');
 Route::resource('reference_offers','ReferenceOfferController');
 Route::resource('transactions','TransactionController');
+Route::resource('barg_transactions','BargTransactionController');
 
 //authentication
 Auth::routes();
