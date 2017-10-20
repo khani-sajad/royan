@@ -60,3 +60,9 @@ function reference_name($id)
     if ( isset( $person->first_name ) ) return $person->first_name . ' ' . $person->last_name ;
     return '?';
 }
+
+function reference_type($id)
+{
+    $ref = \App\Reference::find($id);
+    return translate($ref->referencable_type);
+}

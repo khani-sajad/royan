@@ -12,8 +12,6 @@
                             این آیکیوبرگ در تاریخ
                             <span>{{jDate::forge($barg->updated_at)->format('%d %B %Y')}}</span>
                              استفاده شده است.
-                            <br>
-                            <a href="#"> مشاهده جزییات تراکنش </a>
                         </small>
                     </div>
                 @elseif ($barg->reference_id)

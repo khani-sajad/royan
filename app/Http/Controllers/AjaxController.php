@@ -59,7 +59,7 @@ class AjaxController extends Controller
         $owner_type = ra($reference_instance->referencable_type);
         $reference = $reference_instance->referencable;
 
-        session(['barg_id' => $barg->id, 'reference_id' => $reference_instance->id]);
+        session(['barg_id' => $barg->id, 'barg_number' => $barg->number, 'reference_id' => $reference_instance->id]);
 
         return view('partials.barg',compact('reference','owner_type','barg'));
     }

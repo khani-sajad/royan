@@ -88,6 +88,10 @@ class DashboardController extends Controller
                 $bargs = \App\Receiver::find(auth()->user()->userable_id)->bargs;
                 return view('home',compact('dashboard','dashboard_type','bargs'));
                 break;
+            case 'barg_transactions_list':
+                $list = \App\BargTransaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
+                return view('home',compact('dashboard','dashboard_type','list'));
+                break;
 
             default:
                 return view('home',compact('dashboard','dashboard_type'));
