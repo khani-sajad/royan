@@ -24,6 +24,8 @@ th {text-align: center;}
 
 i.small {font-size: 0.6em}
 
+input::placeholder {font-size: 0.9em; line-height: 1.1em}
+
 .custom-control-indicator {position: absolute; right: 0;}
 .custom-control-description {margin-right: 25px;}
 

@@ -88,10 +88,16 @@
     </table>
 @endif
 
+<p class="h4 dinar text-primary mb-4"> جزییات تراکنش </p>
 <form class="row" action="{{url('barg_transactions')}}" method="post">
     {{csrf_field()}}
-    <div class="col-md-3"></div>
-    <fieldset class="form-group col-sm-6">
-      <input type="text" class="form-control" id="uid" name="uid" autocomplete="off" autofocus placeholder="اسکن کارت">
+    <fieldset class="form-group col-sm-3">
+      <input type="text" class="form-control commo" id="amount" name="amount" placeholder="مبلغ خرید به تومان" required>
+    </fieldset>
+    <fieldset class="form-group col-sm-8">
+      <input type="text" class="form-control" id="description" name="description" placeholder="در صورت تمایل میتوانید توضیحات ارائه کنید.">
+    </fieldset>
+    <fieldset class="col-sm-1">
+        <button type="submit" class="btn btn-primary">تایید</button>
     </fieldset>
 </form>
