@@ -13,6 +13,11 @@ class Person extends Model
         return $this->morphOne(Card::class,'cardable');
     }
 
+    public function bargs()
+    {
+        return $this->morphMany(Barg::class,'registered_for');
+    }
+
     public function transactions()
     {
       return $this->hasMany(Transaction::class);

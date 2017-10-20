@@ -14,7 +14,7 @@ class BladeDirectivesServiceProvider extends ServiceProvider
             $reference = \App\Reference::where( 'referencable_id', auth()->user()->userable_id )
                                         ->where( 'referencable_type', auth()->user()->userable_type )
                                         ->first();
-            return $reference ? true : false;
+            return $reference ? true : false ;
         });
     }
 

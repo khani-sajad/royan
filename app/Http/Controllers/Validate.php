@@ -29,8 +29,7 @@ class Validate extends Controller
     {
         return request()->validate([
           "uid" => "required|unique:cards",
-          "number" => "required|unique:cards",
-          "type" => "nullable"
+          "number" => "required|unique:cards"
         ]);
     }
 
