@@ -12,6 +12,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        define('DS',DIRECTORY_SEPARATOR);
     }
 
     public function register()

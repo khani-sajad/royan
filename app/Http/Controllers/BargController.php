@@ -32,16 +32,36 @@ class BargController extends Controller
             }
         }
 
-        //assigning random unique ids to each barg
+        //assigning random unique ids to each barg and saving them
+        $data[] = ['شماره کارت','آیدی ویژه'];
         for ($i=$from; $i <=$untill ; $i++) {
+            $uid = bin2hex(openssl_random_pseudo_bytes(6));
+
+            $row = [];
+            $row[] = (string) $i;
+            $row[] = $uid;
+
             $barg = new Barg;
             $barg->number = $i;
-            $barg->uid = bin2hex(openssl_random_pseudo_bytes(6));
+            $barg->uid = $uid;
+
+            $data[] = $row;
             $barg->save();
         }
 
         //creating excel for it
-        dd('here');
+        $now = str_replace(':','-',\jDate::forge('now')->format('datetime'));
+        \Excel::create('IQBargs '.$now, function($excel) use($data) {
+
+            $excel->sheet('آیکیو برگ ها', function($sheet) use($data) {
+
+                $sheet->fromArray($data, null, 'A1', false, false);
+
+            });
+
+
+        })->store('xls', storage_path('excels'))->download('xls');
+
     }
 
     public function show(Barg $barg)

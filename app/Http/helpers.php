@@ -7,6 +7,13 @@ function rc($value){
     return (int) strtolower(str_replace(',','',$value));
 }
 
+function ut()
+{
+    return ra(auth()->user()->userable_type);
+}
+
+/****************************************************************/
+
 function translate($word){
     switch (ra($word)) {
         case 'admin': return 'ادمین' ; break;
@@ -37,10 +44,16 @@ function translate_number($value,$type)
     }
 }
 
+/****************************************************************/
+
+
 function toman($value)
 {
     return $value ? $value.' تومان' : $value;
 }
+
+/****************************************************************/
+
 
 function jumbo_error($message)
 {
@@ -61,9 +74,12 @@ function reference_name($id)
     return '?';
 }
 
-function ut()
+function storage($path)
 {
-    return ra(auth()->user()->userable_type);
+    $path = 'storage/'.$path;
+    $path = asset($path);
+    $path = str_replace('public/','',$path);
+    return $path;
 }
 
 function reference_type($id)

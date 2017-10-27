@@ -42,9 +42,20 @@ class DashboardController extends Controller
                 return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
                 break;
             case 'iq_bargs':
-            case 'barg_basic_define':
-                $bargs = \App\Barg::all();
+                $bargs = \App\Barg::paginate(24);
                 return view('home',compact('dashboard','dashboard_type','bargs'));
+                break;
+            case 'barg_basic_define':
+                $files = scandir('../storage/excels');
+                $count = DB::table('bargs')->count('*');
+                return view('home',compact('dashboard','dashboard_type','count','files'));
+                break;
+            case 'assign_iq_barg':
+                $ud = \App\Barg::undedicateds();
+                $barg_from = array_shift($undedicateds)->number;
+                $barg_untill = end($undedicateds)->number;
+                $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
+                return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
                 break;
             default:
                 return view('home',compact('dashboard','dashboard_type'));
