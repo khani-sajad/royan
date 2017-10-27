@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Morilog\Jalali\JalaliServiceProvider::class,
         App\Providers\BladeDirectivesServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Package Service Providers...
