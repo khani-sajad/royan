@@ -10,7 +10,7 @@
   <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
 <div id="IQBargs" class="drop @if (!$open) {{'hidden'}} @endif">
-  <a href="{{url('/receiver/iq_bargs')}}" @if ($dashboard=='iq_bargs') {{'class=active'}} @endif>
+  <a href="{{url(ut().'/iq_bargs')}}" @if ($dashboard=='iq_bargs') {{'class=active'}} @endif>
     <i class="fa fa-eye pl-1"></i>
     <span> مشاهده تمام آیکیوبرگ ها </span>
   </a>

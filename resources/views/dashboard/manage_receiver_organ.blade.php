@@ -10,7 +10,7 @@
   <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
 <div id="manageReceiverOrgan" class="drop @if (!$open) {{'hidden'}} @endif">
-  <a href="{{url('/receiver/base_management')}}" @if ($dashboard=='base_management') {{'class=active'}} @endif>
+  <a href="{{url(ut().'/base_management')}}" @if ($dashboard=='base_management') {{'class=active'}} @endif>
     <i class="fa fa-pencil pl-1"></i>
     <span> ویرایش اطلاعات پایه </span>
   </a>

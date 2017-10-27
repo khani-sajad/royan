@@ -41,6 +41,10 @@ class DashboardController extends Controller
                 $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
                 return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
                 break;
+            case 'iq_bargs':
+                $bargs = \App\Barg::all();
+                return view('home',compact('dashboard','dashboard_type','bargs'));
+                break;
             default:
                 return view('home',compact('dashboard','dashboard_type'));
                 break;

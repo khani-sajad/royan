@@ -61,6 +61,11 @@ function reference_name($id)
     return '?';
 }
 
+function ut()
+{
+    return ra(auth()->user()->userable_type);
+}
+
 function reference_type($id)
 {
     $ref = \App\Reference::find($id);
