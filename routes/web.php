@@ -11,6 +11,7 @@ Route::resource('receivers','ReceiverController');
 Route::resource('customers','CustomerController');
 Route::resource('legals','LegalController');
 Route::resource('offers','OfferController');
+Route::resource('bargs','BargController');
 Route::resource('reference_offers','ReferenceOfferController');
 Route::resource('transactions','TransactionController');
 Route::resource('barg_transactions','BargTransactionController');

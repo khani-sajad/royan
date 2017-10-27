@@ -42,6 +42,7 @@ class DashboardController extends Controller
                 return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
                 break;
             case 'iq_bargs':
+            case 'barg_basic_define':
                 $bargs = \App\Barg::all();
                 return view('home',compact('dashboard','dashboard_type','bargs'));
                 break;
@@ -88,10 +89,10 @@ class DashboardController extends Controller
                 $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
                 return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
                 break;
-            case 'iq_bargs':
-                $bargs = \App\Receiver::find(auth()->user()->userable_id)->bargs;
-                return view('home',compact('dashboard','dashboard_type','bargs'));
-                break;
+            // case 'iq_bargs':
+            //     $bargs = \App\Receiver::find(auth()->user()->userable_id)->bargs;
+            //     return view('home',compact('dashboard','dashboard_type','bargs'));
+            //     break;
             case 'barg_transactions_list':
                 $list = \App\BargTransaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
                 return view('home',compact('dashboard','dashboard_type','list'));

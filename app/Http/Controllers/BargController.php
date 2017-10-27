@@ -7,77 +7,58 @@ use Illuminate\Http\Request;
 
 class BargController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $from = request('number_from');
+        $untill = request('number_untill');
+
+        //check for duplicate card
+        for ($i=$from; $i <=$untill ; $i++) {
+            if (Barg::where('number',$i)->first()) {
+                $message = "خطا: کارتی با شماره $i قبلا در سیستم تعریف شده است.";
+                Helper::message($message,'danger');
+                return back();
+            }
+        }
+
+        //assigning random unique ids to each barg
+        for ($i=$from; $i <=$untill ; $i++) {
+            $barg = new Barg;
+            $barg->number = $i;
+            $barg->uid = bin2hex(openssl_random_pseudo_bytes(6));
+            $barg->save();
+        }
+
+        //creating excel for it
+        dd('here');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Barg  $barg
-     * @return \Illuminate\Http\Response
-     */
     public function show(Barg $barg)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Barg  $barg
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Barg $barg)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Barg  $barg
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Barg $barg)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Barg  $barg
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Barg $barg)
     {
         //

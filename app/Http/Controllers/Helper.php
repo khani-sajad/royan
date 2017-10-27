@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class Helper extends Controller
 {
+    public static function message($body='',$status='success')
+    {
+        session()->flash('message', $body);
+        session()->flash('status', $status);
+    }
+
     public static function flash($success=true)
     {
       $message = $success ? 'ذخیره سازی با موفقیت انجام شد.' : 'ذخیره سازی با خطا مواجه شد.' ;
