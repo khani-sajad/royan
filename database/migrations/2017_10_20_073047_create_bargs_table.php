@@ -20,7 +20,7 @@ class CreateBargsTable extends Migration
             $table->unsignedInteger('reference_id')->nullable();
             $table->string('uid')->unique();
             $table->string('number')->unique();
-            $table->boolean('used')->default(0);
+            $table->string('useable_in')->default('0');
             $table->timestamps();
         });
     }
