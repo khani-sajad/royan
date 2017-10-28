@@ -15,7 +15,7 @@
                         </small>
                     </div>
                 @elseif(!$barg->registered_for_id && !$barg->reference_id)
-                    <div class="card-header bg-info">
+                    <div class="card-header text-white bg-info">
                         فوج اول اختصاص
                     </div>
                     <div class="card-block p-2">
@@ -27,8 +27,8 @@
                         </small>
                     </div>
                 @elseif(!$barg->reference_id)
-                    <div class="card-header bg-success">
-                        قابل اختصاص به مرجع
+                    <div class="card-header text-white bg-success">
+                        قابل اختصاص به معرف
                     </div>
                     <div class="card-block p-2">
                         <h4 class="card-title">{{$barg->number}}</h4>

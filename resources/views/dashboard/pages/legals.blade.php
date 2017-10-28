@@ -9,7 +9,7 @@
       <th>استان</th>
       <th>شهر</th>
       <th>منطقه شهری</th>
-      <th>مرجع</th>
+      <th>معرف</th>
     </tr>
   </thead>
   <tbody>

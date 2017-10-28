@@ -29,10 +29,10 @@
     </fieldset>
     <fieldset class="form-group col-sm-6">
         <label for="useable_in" class="control-label">
-            قابل استفاده در:
+            قابل استفاده برای :
         </label>
         <select name="useable_in" class="form-control">
-            <option value="0">همه جا</option>
+            <option value="0">همه پذیرندگان</option>
             @foreach ($receivers as $receiver)
                 <option value="{{$receiver->id}}">{{$receiver->business_name}}</option>
             @endforeach
@@ -41,6 +41,6 @@
 
 
     <div class="col-sm-4"></div>
-    <button type="submit" class="btn btn-primary col-sm-4 mt-2"> اضافه کردن به لیست آیکیوبرگ ها </button>
+    <button type="submit" class="btn btn-primary col-sm-4 mt-2"> تخصیص آیکیوبرگ به معرف </button>
 
 </form>

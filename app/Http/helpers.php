@@ -38,7 +38,7 @@ function translate_number($value,$type)
         break;
 
         case 'offer':
-        return $value == 2 ? 'مرجع' : 'عمومی'; break;
+        return $value == 2 ? 'معرف' : 'عمومی'; break;
 
         default: return $value; break;
     }
