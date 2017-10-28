@@ -1,4 +1,4 @@
-<form class="row p-3" action="{{url('/bargs')}}" method="post">
+<form class="row p-3" action="{{url('/assign_iq_bargs')}}" method="post">
     {{csrf_field()}}
 
     <fieldset class="form-group col-sm-6">
@@ -17,20 +17,21 @@
         <label for="assign_to" class="control-label">
             اختصاص به:
         </label>
-        <select class="form-control">
-          @foreach ($references as $reference)
-              <option value="{{$reference->id}}">
-                  {{select_reference($reference)}}
-                  ({{$reference->dedicated_cards}})
-              </option>
-          @endforeach
+        <select name="to" class="form-control">
+            <option disabled selected> انتخاب کنید </option>
+            @foreach ($references as $reference)
+                <option value="{{$reference->id}}">
+                    {{select_person($reference->referencable)}}
+                    ({{$reference->dedicated_cards}})
+                </option>
+            @endforeach
         </select>
     </fieldset>
     <fieldset class="form-group col-sm-6">
         <label for="useable_in" class="control-label">
             قابل استفاده در:
         </label>
-        <select class="form-control">
+        <select name="useable_in" class="form-control">
             <option value="0">همه جا</option>
             @foreach ($receivers as $receiver)
                 <option value="{{$receiver->id}}">{{$receiver->business_name}}</option>

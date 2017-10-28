@@ -2,21 +2,33 @@
     @foreach ($bargs as $barg)
         <div class=" col-md-3 my-2">
             <div class="card text-center">
-                @if ($barg->used)
-                    <div class="card-header bg-danger">
-                        استفاده شده
+                @if (!$barg->registered_for_id)
+                    <div class="card-header bg-info">
+                        فوج اول اختصاص
                     </div>
                     <div class="card-block p-2">
                         <h4 class="card-title">{{$barg->number}}</h4>
                         <small class="card-text">
                             این آیکیوبرگ در تاریخ
-                            <span>{{jDate::forge($barg->updated_at)->format('%d %B %Y')}}</span>
-                             استفاده شده است.
+                            <span>{{jDate::forge($barg->created_at)->format('%d %B %Y')}}</span>
+                             به لیست آیکیو&zwnj;ها اضافه شده است.
                         </small>
                     </div>
-                @elseif ($barg->reference_id)
+                @elseif (!$barg->reference_id)
+                    <div class="card-header bg-success">
+                        قابل اختصاص به مرجع
+                    </div>
+                    <div class="card-block p-2">
+                        <h4 class="card-title">{{$barg->number}}</h4>
+                        <small class="card-text">
+                            این آیکیوبرگ هم&zwnj;اکنون در اختیار
+                            {{select_person($barg->registered_for)}}
+                            میباشد.
+                        </small>
+                    </div>
+                @else
                     <div class="card-header bg-warning">
-                        اختصاص داده شده.
+                        اختصاص داده شده
                     </div>
                     <div class="card-block p-2">
                         <h4 class="card-title">{{$barg->number}}</h4>
@@ -26,19 +38,9 @@
                              به <a href="#">{{reference_name($barg->reference_id)}}</a> اختصاص داده شد.
                         </small>
                     </div>
-                @else
-                    <div class="card-header bg-success">
-                        قابل اختصاص
-                    </div>
-                    <div class="card-block p-2">
-                        <h4 class="card-title">{{$barg->number}}</h4>
-                        <small class="card-text">
-                            این آیکیو برگ هنوز به کسی اختصاص داده نشده است.
-                        </small>
-                    </div>
                 @endif
                 <div class="card-footer text-muted">
-
+                    {{ $barg->registered_for_id ? select_person($barg->registered_for) : 'رویان رسانه' }}
                 </div>
             </div>
         </div>

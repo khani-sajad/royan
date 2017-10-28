@@ -74,11 +74,11 @@ function reference_name($id)
     return '?';
 }
 
-function select_reference($reference){
-    $person = $reference->referencable;
+function select_person($person){
     if ( isset( $person->business_name ) ) return $person->business_name;
     if ( isset( $person->company_name ) ) return $person->company_name;
     if ( isset( $person->mobile ) ) return $person->mobile;
+    return '?';
 }
 
 function storage($path)

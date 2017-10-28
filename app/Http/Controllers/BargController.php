@@ -19,7 +19,7 @@ class BargController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $from = request('number_from');
         $untill = request('number_untill');
@@ -62,7 +62,7 @@ class BargController extends Controller
         //
     }
 
-    public function update(Request $request, Barg $barg)
+    public function update(Barg $barg)
     {
         //
     }
@@ -70,5 +70,35 @@ class BargController extends Controller
     public function destroy(Barg $barg)
     {
         //
+    }
+
+    public function assign()
+    {
+        //validation
+        request()->validate([
+            'number_from'   => 'required|integer|exists:bargs,number',
+            'number_untill' => 'required|integer|exists:bargs,number',
+            'to'            => 'required|integer|exists:references,id'
+        ]);
+
+        //preparing variables
+        $to = request('to');
+        $ref = \App\Reference::find($to);
+        $type = ra($ref->referencable_type);
+        $range = range(request('number_from'),request('number_untill'));
+
+        //updating bargs
+        DB::table('bargs')->whereIn('number', $range)->update([
+            'registered_for_id' => $to,
+            'registered_for_type' => $type
+        ]);
+
+        //updating reference itself
+        $ref->dedicated_cards += count($range);
+        $ref->save();
+
+
+        Helper::flash();
+        return back();
     }
 }
