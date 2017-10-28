@@ -6,14 +6,14 @@
 {{------------------------------------------------------------------------------------------}}
 
 
-@include('dashboard.manage_customers')
-@include('dashboard.manage_transactions')
-@include('dashboard.manage_offers')
-@include('dashboard.manage_receiver_organ')
-@include('dashboard.support')
-@include('dashboard.reports')
-@include('dashboard.accountancy')
-@include('dashboard.online_conversation')
+@include('dashboard.menus.manage_customers')
+@include('dashboard.menus.manage_transactions')
+@include('dashboard.menus.manage_offers')
+@include('dashboard.menus.manage_receiver_organ')
+@include('dashboard.menus.support')
+@include('dashboard.menus.reports')
+@include('dashboard.menus.accountancy')
+@include('dashboard.menus.online_conversation')
 
 @reference
     @include('dashboard.receivers.presents')

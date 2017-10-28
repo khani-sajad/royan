@@ -27,7 +27,7 @@
     <span> تعریف مشتری حقوقی </span>
   </a>
   <a href="{{url(ut().'/x1')}}" @if ($dashboard=='x1') {{'class=active'}} @endif>
-    <i class="fa fa-eye pl-1"></i>
+    <i class="fa fa-plus pl-1"></i>
     <span> تعریف شعب مشتری حقوقی </span>
   </a>
   <a href="{{url(ut().'/x2')}}" @if ($dashboard=='x2') {{'class=active'}} @endif>

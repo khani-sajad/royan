@@ -1,3 +1,8 @@
+@php
+    $dashboard = session('dashboard');
+    $dashboard_type = session('dashboard_type');
+@endphp
+
 @extends('layouts.master')
 
 @section('main')
@@ -6,7 +11,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-2 col-md-4 dashboard">
-        @include($dashboard_type.'.dashboard')
+        @include('dashboard.'.$dashboard_type)
       </div>
       <div class="col-lg-10 col-md-8 inside">
         <div class="row py-1 px-3 topbar" dir="ltr">
@@ -14,7 +19,7 @@
         </div>
         <div class="py-4 px-2">
           @include('partials.errors')
-          @includeIf($dashboard_type.'.pages.'.$dashboard)
+          @includeIf('dashboard.pages.'.$dashboard)
         </div>
       </div>
     </div>

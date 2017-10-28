@@ -5,8 +5,8 @@
 
 {{------------------------------------------------------------------------------------------}}
 
-@include('dashboard.manage_customers')
-@include('dashboard.manage_iq_bargs')
+@include('dashboard.menus.manage_customers')
+@include('dashboard.menus.manage_iq_bargs')
 
 
 

@@ -22,41 +22,35 @@ class DashboardController extends Controller
             abort(404);
         }
 
+        //setting sessions
+        session(compact('dashboard','dashboard_type'));
+
         //switching cases
         switch ($dashboard) {
-            case 'users_list':
-                $users = \App\User::all();
-                return view('home',compact('dashboard','dashboard_type','users'));
+            case 'customers':
+                $customers = \App\Customer::paginate(20);
+                return view('home',compact('customers'));
                 break;
-            case 'offers_list':
-                $offers = \App\Offer::all();
-                return view('home',compact('dashboard','dashboard_type','offers'));
-                break;
-            case 'legal_customer':
-            case 'real_customer':
-                $ud = \App\Barg::undedicateds();
-                $undedicateds = end($ud);
-                $barg_from = array_shift($undedicateds)->number;
-                $barg_untill = end($undedicateds)->number;
-                $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
-                return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
+            case 'legals':
+                $legals = \App\Legal::paginate(20);
+                return view('home',compact('legals'));
                 break;
             case 'iq_bargs':
                 $bargs = \App\Barg::paginate(24);
-                return view('home',compact('dashboard','dashboard_type','bargs'));
+                return view('home',compact('bargs'));
                 break;
             case 'barg_basic_define':
                 $files = scandir(storage_path('excels/IQBargs'));
                 $count = DB::table('bargs')->count('*');
-                return view('home',compact('dashboard','dashboard_type','count','files'));
+                return view('home',compact('count','files'));
                 break;
             case 'assign_iq_barg':
                 $references = \App\Reference::all();
                 $receivers = \App\Receiver::all();
-                return view('home',compact('dashboard','dashboard_type','references','receivers'));
+                return view('home',compact('references','receivers'));
                 break;
             default:
-                return view('home',compact('dashboard','dashboard_type'));
+                return view('home');
                 break;
         }
     }
@@ -71,23 +65,26 @@ class DashboardController extends Controller
             abort(404);
         }
 
+        //setting sessions
+        session(compact('dashboard','dashboard_type'));
+
         //switching cases
         switch ($dashboard) {
             case 'transactions_list':
                 $transactions = \App\Transaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
-                return view('home',compact('dashboard','dashboard_type','transactions'));
+                return view('home',compact('transactions'));
                 break;
             case 'customers':
                 $customers = \App\Customer::where('registerby',auth()->id())->paginate(20);
-                return view('home',compact('dashboard','dashboard_type','customers'));
+                return view('home',compact('customers'));
                 break;
             case 'legals':
                 $legals = \App\Legal::where('registerby',auth()->id())->paginate(20);
-                return view('home',compact('dashboard','dashboard_type','legals'));
+                return view('home',compact('legals'));
                 break;
             case 'base_management':
                 $receiver = \App\Receiver::find(auth()->user()->userable_id);
-                return view('home',compact('dashboard','dashboard_type','receiver'));
+                return view('home',compact('receiver'));
                 break;
             case 'legal_customer':
             case 'real_customer':
@@ -96,15 +93,11 @@ class DashboardController extends Controller
                 $barg_from = array_shift($undedicateds)->number;
                 $barg_untill = end($undedicateds)->number;
                 $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
-                return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
+                return view('home',compact('barg_from','barg_untill','total_bargs'));
                 break;
-            // case 'iq_bargs':
-            //     $bargs = \App\Receiver::find(auth()->user()->userable_id)->bargs;
-            //     return view('home',compact('dashboard','dashboard_type','bargs'));
-            //     break;
             case 'barg_transactions_list':
                 $list = \App\BargTransaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
-                return view('home',compact('dashboard','dashboard_type','list'));
+                return view('home',compact('list'));
                 break;
 
             default:
