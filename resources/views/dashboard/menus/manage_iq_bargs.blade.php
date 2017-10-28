@@ -10,10 +10,12 @@
   <i class="fa fa-chevron-{{ $open ? 'up' : 'down'}} float-left ml-2 rotate"></i>
 </a>
 <div id="IQBargs" class="drop @if (!$open) {{'hidden'}} @endif">
-  <a href="{{url(ut().'/barg_basic_define')}}" @if ($dashboard=='barg_basic_define') {{'class=active'}} @endif>
-    <i class="fa fa-tags pl-1"></i>
-    <span> تعریف اولیه </span>
-  </a>
+  @admin
+      <a href="{{url(ut().'/barg_basic_define')}}" @if ($dashboard=='barg_basic_define') {{'class=active'}} @endif>
+        <i class="fa fa-tags pl-1"></i>
+        <span> تعریف اولیه </span>
+      </a>
+  @endadmin
   <a href="{{url(ut().'/iq_bargs')}}" @if ($dashboard=='iq_bargs') {{'class=active'}} @endif>
     <i class="fa fa-eye pl-1"></i>
     <span> مشاهده تمام آیکیوبرگ ها </span>

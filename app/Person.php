@@ -23,6 +23,11 @@ class Person extends Model
         return $this->morphMany(Reference::class,'referencable');
     }
 
+    public function reference()
+    {
+        return $this->morphOne(Reference::class,'referencable');
+    }
+
     public function transactions()
     {
       return $this->hasMany(Transaction::class);

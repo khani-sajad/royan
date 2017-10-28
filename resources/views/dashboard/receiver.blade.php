@@ -8,6 +8,7 @@
 
 @include('dashboard.menus.manage_customers')
 @include('dashboard.menus.manage_transactions')
+@include('dashboard.menus.manage_iq_bargs')
 @include('dashboard.menus.manage_offers')
 @include('dashboard.menus.manage_receiver_organ')
 @include('dashboard.menus.support')

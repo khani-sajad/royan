@@ -99,6 +99,17 @@ class DashboardController extends Controller
                 $list = \App\BargTransaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
                 return view('home',compact('list'));
                 break;
+            case 'iq_bargs':
+                $id = auth()->user()->userable_id;
+                $reference_id = \App\Receiver::find($id)->reference->id;
+                $bargs = \App\Barg::where('registered_for_id',$reference_id)->orWhere('reference_id',$reference_id)->paginate(24);
+                return view('home',compact('bargs'));
+                break;
+            case 'assign_iq_barg':
+                $references = \App\Reference::all();
+                $receivers = \App\Receiver::all();
+                return view('home',compact('references','receivers'));
+                break;
 
             default:
                 return view('home',compact('dashboard','dashboard_type'));

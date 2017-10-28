@@ -16,7 +16,6 @@ class CreateBargsTable extends Migration
         Schema::create('bargs', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('registered_for_id')->default(0);
-            $table->string('registered_for_type')->nullable();
             $table->unsignedInteger('reference_id')->nullable();
             $table->string('uid')->unique();
             $table->string('number')->unique();
