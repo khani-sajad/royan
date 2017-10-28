@@ -89,15 +89,28 @@
 @endif
 
 <p class="h4 dinar text-primary mb-4"> جزییات تراکنش </p>
-<form class="row" action="{{url('barg_transactions')}}" method="post">
+<form class="row barg-transaction" action="{{url('barg_transactions')}}" method="post">
     {{csrf_field()}}
-    <fieldset class="form-group col-sm-3">
-      <input type="text" class="form-control commo" id="amount" name="amount" placeholder="مبلغ خرید به تومان" required>
+    <fieldset class="form-group col-sm-4">
+        <i class="fa fa-asterisk small text-danger ml-1"></i> مبلغ اولیه کالا
+        <span class="text-info font-weight-bold mr-2"></span>
+        <input type="text" class="form-control mt-2" name="amount" placeholder="به تومان" required data-discount="10">
     </fieldset>
-    <fieldset class="form-group col-sm-8">
-      <input type="text" class="form-control" id="description" name="description" placeholder="در صورت تمایل میتوانید توضیحات ارائه کنید.">
+    <fieldset class="form-group col-sm-8"> توضیحات
+        <input type="text" class="form-control mt-2" name="description" placeholder="در صورت تمایل میتوانید توضیحات ارائه کنید.">
     </fieldset>
-    <fieldset class="col-sm-1">
+    <fieldset class="form-group col-sm-4">
+        <i class="fa fa-asterisk small text-danger ml-1"></i> شماره تلفن
+        <input type="text" class="form-control mt-2" name="phone" required>
+    </fieldset>
+    <fieldset class="form-group col-sm-4"> نام و نام خانوادگی
+        <input type="text" class="form-control mt-2" name="full_name">
+    </fieldset>
+    <fieldset class="form-group col-sm-4"> شهر
+        <input type="text" class="form-control mt-2" name="city">
+    </fieldset>
+    <div class="col-md-5"></div>
+    <fieldset class="col-sm-2">
         <button type="submit" class="btn btn-primary">تایید</button>
     </fieldset>
 </form>

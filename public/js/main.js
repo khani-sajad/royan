@@ -80,6 +80,19 @@ $(document).ready(function () {
         }
     });
 
+    //barg transaction
+    $(document).on('keyup','form.barg-transaction input[name=amount]', function () {
+        var target = $(this).siblings('span');
+        var value = parseInt($(this).val());
+        if (value) {
+            var discount = parseInt($(this).attr('data-discount'));
+            value -= Math.floor(value/discount);
+            target.html('مبلغ دریافتی از مشتری : '+value);
+        }else {
+            target.html('');
+        }
+    });
+
     //helper functions
     function isInt(value) {
       return !isNaN(value) &&
