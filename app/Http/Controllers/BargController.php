@@ -84,14 +84,10 @@ class BargController extends Controller
         //preparing variables
         $to = request('to');
         $ref = \App\Reference::find($to);
-        $type = ra($ref->referencable_type);
         $range = range(request('number_from'),request('number_untill'));
 
         //updating bargs
-        DB::table('bargs')->whereIn('number', $range)->update([
-            'registered_for_id' => $to,
-            'registered_for_type' => $type
-        ]);
+        DB::table('bargs')->whereIn('number', $range)->update( ['registered_for_id' => $to] );
 
         //updating reference itself
         $ref->dedicated_cards += count($range);
