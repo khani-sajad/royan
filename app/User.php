@@ -14,5 +14,9 @@ class User extends Authenticatable
     protected $hidden = [
         'remember_token',
     ];
-    
+
+    public static function is_admin()
+    {
+        return ra(auth()->user()->userable_type) == 'admin' ;
+    }
 }

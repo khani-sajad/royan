@@ -78,12 +78,8 @@ function reference_name($id,$luxury=false)
         if ( isset( $person->manager_name ) ) return $person->manager_name;
         if ( isset( $person->first_name ) ) return $person->first_name . ' ' . $person->last_name ;
     }
-    
+
     return '?';
-}
-
-function select_person($person){
-
 }
 
 function storage($path)

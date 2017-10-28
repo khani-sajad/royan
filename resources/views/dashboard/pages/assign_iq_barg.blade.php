@@ -21,7 +21,7 @@
             <option disabled selected> انتخاب کنید </option>
             @foreach ($references as $reference)
                 <option value="{{$reference->id}}">
-                    {{select_person($reference->referencable)}}
+                    {{reference_name($reference->id,true)}}
                     ({{$reference->dedicated_cards}})
                 </option>
             @endforeach

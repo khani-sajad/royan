@@ -82,18 +82,38 @@ class BargController extends Controller
         ]);
 
         //preparing variables
+        $from = request('number_from');
+        $untill = request('number_untill');
+
+        //extra check if user is not admin
+        if(!\App\User::is_admin()){
+            $reference_id = Get::current_reference()->id;
+            for ($i=$from; $i <=$untill ; $i++) {
+                $found = \App\Barg::where('number',$i)->where('registered_for_id', $reference_id)->first();
+                if (!$found) {
+                    Helper::message('این بازه از کارت ها به شما تعلق ندارد!','danger');
+                    return back();
+                }
+            }
+        }
+
+        //preparing variables
         $to = request('to');
         $ref = \App\Reference::find($to);
-        $range = range(request('number_from'),request('number_untill'));
+        $range = range($from,$untill);
 
         //updating bargs
-        DB::table('bargs')->whereIn('number', $range)->update( ['registered_for_id' => $to] );
+        if(\App\User::is_admin()){
+            DB::table('bargs')->whereIn('number', $range)->update( ['registered_for_id' => $to] );
+        }else {
+            DB::table('bargs')->whereIn('number', $range)->update( ['reference_id' => $to] );
+        }
 
         //updating reference itself
         $ref->dedicated_cards += count($range);
         $ref->save();
 
-
+        //redirect
         Helper::flash();
         return back();
     }
