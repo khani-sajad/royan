@@ -22,7 +22,7 @@
                         <h4 class="card-title">{{$barg->number}}</h4>
                         <small class="card-text">
                             این آیکیوبرگ هم&zwnj;اکنون در اختیار
-                            {{select_person($barg->registered_for)}}
+                            {{reference_name($barg->registered_for_id,true)}}
                             میباشد.
                         </small>
                     </div>
@@ -40,7 +40,7 @@
                     </div>
                 @endif
                 <div class="card-footer text-muted">
-                    {{ $barg->registered_for_id ? select_person($barg->registered_for) : 'رویان رسانه' }}
+                    {{ $barg->registered_for_id ? reference_name($barg->registered_for_id,true) : 'رویان رسانه' }}
                 </div>
             </div>
         </div>

@@ -65,20 +65,25 @@ function jumbo_error($message)
     return $error;
 }
 
-function reference_name($id)
+function reference_name($id,$luxury=false)
 {
     $ref = \App\Reference::find($id);
     $person = $ref->referencable;
-    if ( isset( $person->manager_name ) ) return $person->manager_name;
-    if ( isset( $person->first_name ) ) return $person->first_name . ' ' . $person->last_name ;
+
+    if ($luxury) {
+        if ( isset( $person->business_name ) ) return $person->business_name;
+        if ( isset( $person->company_name ) ) return $person->company_name;
+        if ( isset( $person->mobile ) ) return $person->mobile;
+    }else {
+        if ( isset( $person->manager_name ) ) return $person->manager_name;
+        if ( isset( $person->first_name ) ) return $person->first_name . ' ' . $person->last_name ;
+    }
+    
     return '?';
 }
 
 function select_person($person){
-    if ( isset( $person->business_name ) ) return $person->business_name;
-    if ( isset( $person->company_name ) ) return $person->company_name;
-    if ( isset( $person->mobile ) ) return $person->mobile;
-    return '?';
+
 }
 
 function storage($path)
