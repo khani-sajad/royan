@@ -25,7 +25,7 @@ class BargController extends Controller
         $untill = request('number_untill');
 
         //Creating a lot of bargs takes a long time!
-        ini_set('max_execution_time', 0);
+        ini_set('max_execution_time', 60);
 
         //check for duplicate card and validate
         if($from >= $untill) return back();
