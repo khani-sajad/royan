@@ -46,7 +46,7 @@ class DashboardController extends Controller
                 return view('home',compact('dashboard','dashboard_type','bargs'));
                 break;
             case 'barg_basic_define':
-                $files = scandir('../storage/excels');
+                $files = scandir(storage_path('excels/IQBargs'));
                 $count = DB::table('bargs')->count('*');
                 return view('home',compact('dashboard','dashboard_type','count','files'));
                 break;

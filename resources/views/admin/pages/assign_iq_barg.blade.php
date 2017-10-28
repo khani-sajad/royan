@@ -19,7 +19,10 @@
         </label>
         <select class="form-control">
           @foreach ($references as $reference)
-              <option>{{select_reference($reference)}}</option>
+              <option value="{{$reference->id}}">
+                  {{select_reference($reference)}}
+                  ({{$reference->dedicated_cards}})
+              </option>
           @endforeach
         </select>
     </fieldset>
@@ -28,8 +31,9 @@
             قابل استفاده در:
         </label>
         <select class="form-control">
+            <option value="0">همه جا</option>
             @foreach ($receivers as $receiver)
-                <option>{{$receiver->business_name}}</option>
+                <option value="{{$receiver->id}}">{{$receiver->business_name}}</option>
             @endforeach
         </select>
     </fieldset>

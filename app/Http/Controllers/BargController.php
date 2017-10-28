@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Barg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BargController extends Controller
 {
@@ -23,45 +24,32 @@ class BargController extends Controller
         $from = request('number_from');
         $untill = request('number_untill');
 
-        //check for duplicate card
-        for ($i=$from; $i <=$untill ; $i++) {
-            if (Barg::where('number',$i)->first()) {
-                $message = "خطا: کارتی با شماره $i قبلا در سیستم تعریف شده است.";
-                Helper::message($message,'danger');
-                return back();
-            }
+        //Creating a lot of bargs takes a long time!
+        ini_set('max_execution_time', 0);
+
+        //check for duplicate card and validate
+        if($from >= $untill) return back();
+        if ( Barg::where('number',$from)->first() || Barg::where('number',$untill)->first() ) {
+            $message = "خطا: تداخل در شماره کارت ها";
+            Helper::message($message,'danger');
+            return back();
         }
 
-        //assigning random unique ids to each barg and saving them
-        $data[] = ['شماره کارت','آیدی ویژه'];
+        //creating the data
         for ($i=$from; $i <=$untill ; $i++) {
             $uid = bin2hex(openssl_random_pseudo_bytes(6));
-
             $row = [];
-            $row[] = (string) $i;
-            $row[] = $uid;
-
-            $barg = new Barg;
-            $barg->number = $i;
-            $barg->uid = $uid;
-
+            $row['number'] = (string) $i;
+            $row['uid'] = $uid;
             $data[] = $row;
-            $barg->save();
         }
 
+        //saving them in database
+        Barg::insert($data);
+
         //creating excel for it
-        $now = str_replace(':','-',\jDate::forge('now')->format('datetime'));
-        \Excel::create('IQBargs '.$now, function($excel) use($data) {
-
-            $excel->sheet('آیکیو برگ ها', function($sheet) use($data) {
-
-                $sheet->fromArray($data, null, 'A1', false, false);
-
-            });
-
-
-        })->store('xls', storage_path('excels'))->download('xls');
-
+        $headers = ['شماره کارت','آیدی ویژه'];
+        Make::excel($data,$headers,'IQBarg');
     }
 
     public function show(Barg $barg)

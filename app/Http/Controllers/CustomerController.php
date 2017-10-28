@@ -23,7 +23,6 @@ class CustomerController extends Controller
         //validations
         $customer = Validate::customer();
         $card = Validate::card();
-        $reference = request('is_reference') ? Validate::reference() : null;
 
         //customer
         $customer['registerby'] = auth()->id();
@@ -42,8 +41,8 @@ class CustomerController extends Controller
         Make::card($card,$customer_instance->id,'Customer');
 
         //reference
-        if($reference){
-          Make::reference($reference,$customer_instance->id,'Customer');
+        if(request('is_reference')){
+          Make::reference($customer_instance->id,'Customer');
         }
 
         //flash message

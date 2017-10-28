@@ -53,7 +53,7 @@
     @foreach ($files as $key => $file)
         @if ($key>1)
             <div class="col-md-3">
-                <a class="mx-2 calibri" href="{{storage('excels/'.$file)}}" download>
+                <a class="mx-2 calibri" href="{{storage('excels/IQBargs/'.$file)}}" download>
                     <i class="fa fa-download"></i>
                     {{$file}}
                 </a>

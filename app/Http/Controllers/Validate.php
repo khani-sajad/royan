@@ -87,12 +87,12 @@ class Validate extends Controller
         ]);
     }
 
-    public static function reference()
-    {
-        return request()->validate([
-            "dedicated_cards" => "required|integer",
-        ]);
-    }
+    // public static function reference()
+    // {
+    //     return request()->validate([
+    //         "dedicated_cards" => "nullable|integer",
+    //     ]);
+    // }
 
     public static function offer()
     {

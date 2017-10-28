@@ -26,7 +26,6 @@ class ReceiverController extends Controller
         $receiver = Validate::receiver();
         $card = Validate::card();
         $user =  Validate::user();
-        $reference = request('is_reference') ? Validate::reference() : null;
 
         //receiver
         $receiver_instance = Receiver::create($receiver);
@@ -39,8 +38,8 @@ class ReceiverController extends Controller
         Make::user($user,$receiver_instance->id,'Receiver');
 
         //reference
-        if($reference){
-          Make::reference($reference,$receiver_instance->id,'Receiver');
+        if(request('is_reference')){
+          Make::reference($receiver_instance->id,'Receiver');
         }
 
         //flash message

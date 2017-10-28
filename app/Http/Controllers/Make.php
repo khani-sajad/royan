@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 
 class Make extends Controller
 {
-    public static function reference($reference, $id, $type)
+    public static function excel($data,$headers,$name)
+    {
+        array_unshift($data,$headers);
+        $now = str_replace(':','-',\jDate::forge('now')->format('datetime'));
+        \Excel::create($name.' '.$now, function($excel) use($data) {
+            $excel->sheet('Sheet1', function($sheet) use($data) {
+                $sheet->fromArray($data, null, 'A1', false, false);
+            });
+        })->store('xls', storage_path('excels/'.$name.'s'))->download('xls');
+    }
+
+    public static function reference($id, $type)
     {
         $reference['referencable_id'] = $id;
         $reference['referencable_type'] = 'App\\'.$type;
-        $reference_instance = \App\Reference::create($reference);
-        Helper::check($reference_instance);
-
-        $bargs = $reference['dedicated_cards'];
-        $first_undedicated = \App\Barg::first_undedicated();
-        $barg_number = $first_undedicated->number;
-        for ($i=0; $i <$bargs ; $i++) {
-            $barg = \App\Barg::where('number', $barg_number)->first();
-            $barg->reference_id = $reference_instance->id;
-            $barg->save();
-            $barg_number++;
-        }
-
+        $reference['dedicated_cards'] = 0;
+        Helper::check(\App\Reference::create($reference));
     }
 
     public static function card($card, $id, $type)

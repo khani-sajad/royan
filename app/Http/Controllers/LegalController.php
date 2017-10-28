@@ -24,7 +24,6 @@ class LegalController extends Controller
         $legal = Validate::legal();
         $card = Validate::card();
         $user =  Validate::user();
-        $reference = request('is_reference') ? Validate::reference() : null;
 
         //legal
         $legal['registerby'] = auth()->id();
@@ -38,8 +37,8 @@ class LegalController extends Controller
         Make::user($user,$legal_instance->id,'Legal');
 
         //reference
-        if($reference){
-          Make::reference($reference,$legal_instance->id,'Legal');
+        if(request('is_reference')){
+          Make::reference($legal_instance->id,'Legal');
         }
 
         //flash message
