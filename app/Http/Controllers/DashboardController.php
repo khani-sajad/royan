@@ -51,11 +51,9 @@ class DashboardController extends Controller
                 return view('home',compact('dashboard','dashboard_type','count','files'));
                 break;
             case 'assign_iq_barg':
-                $ud = \App\Barg::undedicateds();
-                $barg_from = array_shift($undedicateds)->number;
-                $barg_untill = end($undedicateds)->number;
-                $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
-                return view('home',compact('dashboard','dashboard_type','barg_from','barg_untill','total_bargs'));
+                $references = \App\Reference::all();
+                $receivers = \App\Receiver::all();
+                return view('home',compact('dashboard','dashboard_type','references','receivers'));
                 break;
             default:
                 return view('home',compact('dashboard','dashboard_type'));

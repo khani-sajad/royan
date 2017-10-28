@@ -1,34 +1,37 @@
-<div class="alert alert-info">
-    <ul>
-        <li>تا به حال <span>{{$total_bargs}}</span> آیکیوبرگ به شما اختصاص داده شده است. </li>
-        <li>شما <span>{{$barg_untill - $barg_from + 1}}</span> آیکیوبرگ دارید، که به کسی اختصاص داده نشده&zwnj;اند. </li>
-        <li> شماره آیکیو برگ های اختصاص داده نشده، از <span>{{$barg_from}}</span> تا <span>{{$barg_untill}}</span> هستند. </li>
-    </ul>
-</div>
-
 <form class="row p-3" action="{{url('/bargs')}}" method="post">
     {{csrf_field()}}
 
-    <fieldset class="form-group col-sm-4">
-      <label for="number_from">
-        <i class="fa fa-asterisk small text-danger ml-1"></i>
-        شماره کارت از :
-      </label>
-      <input value="{{old('number_from')}}" type="text" class="form-control" id="number_from"  name="number_from">
+    <fieldset class="form-group col-sm-6">
+        <label for="number_from">
+            شماره کارت از :
+        </label>
+        <input value="{{old('number_from')}}" type="text" class="form-control" id="number_from"  name="number_from">
     </fieldset>
-    <fieldset class="form-group col-sm-4">
-      <label for="number_untill">
-        <i class="fa fa-asterisk small text-danger ml-1"></i>
-        شماره کارت تا :
-      </label>
-      <input value="{{old('number_untill')}}" type="text" class="form-control" id="number_untill"  name="number_untill">
+    <fieldset class="form-group col-sm-6">
+        <label for="number_untill">
+            شماره کارت تا :
+        </label>
+        <input value="{{old('number_untill')}}" type="text" class="form-control" id="number_untill"  name="number_untill">
     </fieldset>
-    <fieldset class="form-group col-sm-4">
-      <label for="number_untill">
-        <i class="fa fa-asterisk small text-danger ml-1"></i>
-        به:
-      </label>
-      <input value="{{old('number_untill')}}" type="text" class="form-control" id="number_untill"  name="number_untill">
+    <fieldset class="form-group col-sm-6">
+        <label for="assign_to" class="control-label">
+            اختصاص به:
+        </label>
+        <select class="form-control">
+          @foreach ($references as $reference)
+              <option>{{select_reference($reference)}}</option>
+          @endforeach
+        </select>
+    </fieldset>
+    <fieldset class="form-group col-sm-6">
+        <label for="useable_in" class="control-label">
+            قابل استفاده در:
+        </label>
+        <select class="form-control">
+            @foreach ($receivers as $receiver)
+                <option>{{$receiver->business_name}}</option>
+            @endforeach
+        </select>
     </fieldset>
 
 
