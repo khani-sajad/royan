@@ -22,6 +22,21 @@ class BladeDirectivesServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return ra(auth()->user()->userable_type) == 'admin' ;
         });
+
+        //receiver
+        Blade::if('receiver', function () {
+            return ra(auth()->user()->userable_type) == 'receiver' ;
+        });
+
+        //legal
+        Blade::if('legal', function () {
+            return ra(auth()->user()->userable_type) == 'legal' ;
+        });
+
+        //customer
+        Blade::if('customer', function () {
+            return ra(auth()->user()->userable_type) == 'customer' ;
+        });
     }
 
     public function register()
