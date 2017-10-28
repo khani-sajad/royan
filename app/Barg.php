@@ -11,6 +11,14 @@ class Barg extends Model
         return $this->morphTo();
     }
 
+    public function used()
+    {
+        $barg_number = $this->number;
+        $receiver_id = auth()->user()->userable_id;
+        $barg = \App\BargTransaction::where('receiver_id',$receiver_id)->where('barg_number', $barg_number)->first();
+        return $barg ? true : false;
+    }
+
     public static function unuseds()
     {
         return self::where('registered_for_type', auth()->user()->userable_type)

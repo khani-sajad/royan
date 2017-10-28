@@ -26,11 +26,6 @@ class BargTransactionController extends Controller
             'description' => 'nullable|string'
         ]);
 
-        //marking the Barg as used
-        $barg = \App\Barg::find(session('barg_id'));
-        $barg->used = 1;
-        $barg->save();
-
         //creating a new Barg Transaction
         $bt = new \App\BargTransaction;
         $bt->amount = request('amount');

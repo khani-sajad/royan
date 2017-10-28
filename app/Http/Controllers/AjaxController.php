@@ -52,10 +52,10 @@ class AjaxController extends Controller
         $barg = \App\Barg::where('uid',$uid)->first();
 
         if(!$barg) return view('partials.card_not_found');
-        if(!$barg->reference_id) return view('partials.card_not_dedicated');
-        if($barg->used) return view('partials.card_already_used');
+        if(!$barg->reference_id && !$barg->registered_for_id) return view('partials.card_not_dedicated');
+        if($barg->used()) return view('partials.card_already_used');
 
-        $reference_instance = \App\Reference::find($barg->reference_id);
+        $reference_instance = $barg->reference_id ? \App\Reference::find($barg->reference_id) : \App\Reference::find($barg->registered_for_id);
         $owner_type = ra($reference_instance->referencable_type);
         $reference = $reference_instance->referencable;
 
