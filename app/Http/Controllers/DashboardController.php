@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $dashboard_type = 'admin';
 
         //make sure the user is admin
-        if ( ra(auth()->user()->userable_type) != $dashboard_type ) {
+        if ( userable_type() != $dashboard_type ) {
             abort(404);
         }
 
@@ -61,7 +61,7 @@ class DashboardController extends Controller
         $dashboard_type = 'receiver';
 
         // make sure the user is a receiver
-        if ( ra(auth()->user()->userable_type) != $dashboard_type ) {
+        if ( userable_type() != $dashboard_type ) {
             abort(404);
         }
 
@@ -71,7 +71,7 @@ class DashboardController extends Controller
         //switching cases
         switch ($dashboard) {
             case 'transactions_list':
-                $transactions = \App\Transaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
+                $transactions = \App\Transaction::where('receiver_id', userable_id())->latest()->paginate(10);
                 return view('home',compact('transactions'));
                 break;
             case 'customers':
@@ -83,7 +83,8 @@ class DashboardController extends Controller
                 return view('home',compact('legals'));
                 break;
             case 'base_management':
-                $receiver = \App\Receiver::find(auth()->user()->userable_id);
+            case 'base_offer':
+                $receiver = \App\Receiver::find(userable_id());
                 return view('home',compact('receiver'));
                 break;
             case 'legal_customer':
@@ -92,15 +93,15 @@ class DashboardController extends Controller
                 $undedicateds = end($ud);
                 $barg_from = array_shift($undedicateds)->number;
                 $barg_untill = end($undedicateds)->number;
-                $total_bargs = count(\App\Receiver::find(auth()->user()->userable_id)->bargs);
+                $total_bargs = count(\App\Receiver::find(userable_id())->bargs);
                 return view('home',compact('barg_from','barg_untill','total_bargs'));
                 break;
             case 'barg_transactions_list':
-                $list = \App\BargTransaction::where('receiver_id', auth()->user()->userable_id)->latest()->paginate(10);
+                $list = \App\BargTransaction::where('receiver_id', userable_id())->latest()->paginate(10);
                 return view('home',compact('list'));
                 break;
             case 'iq_bargs':
-                $id = auth()->user()->userable_id;
+                $id = userable_id();
                 $reference_id = \App\Receiver::find($id)->reference->id;
                 $bargs = \App\Barg::where('registered_for_id',$reference_id)->orWhere('reference_id',$reference_id)->paginate(24);
                 return view('home',compact('bargs'));

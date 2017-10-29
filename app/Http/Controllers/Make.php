@@ -44,7 +44,7 @@ class Make extends Controller
 
     public static function transaction($transaction)
     {
-        $transaction['receiver_id'] = auth()->user()->userable_id;
+        $transaction['receiver_id'] = userable_id();
         $transaction['customer_id'] = session('customer_id');
         $transaction['customer_type'] = session('customer_type');
         Helper::check(\App\Transaction::create($transaction));
@@ -54,7 +54,7 @@ class Make extends Controller
     public static function credit($credit_amount, $cash_amount)
     {
         $credit = \App\Credit::find(session('credit_id'));
-        $receiver = \App\Receiver::find(auth()->user()->userable_id);
+        $receiver = \App\Receiver::find(userable_id());
 
         //essential informations about credits
         $amount = $credit ? rc($credit->amount) : 0;

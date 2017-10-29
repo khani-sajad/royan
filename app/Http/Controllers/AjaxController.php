@@ -26,7 +26,7 @@ class AjaxController extends Controller
       $owner = $card->cardable;
 
       //total_amount
-      $transactions = \App\Transaction::where('receiver_id',auth()->user()->userable_id)->where('customer_id', $owner->id)->where('customer_type', ra($card->cardable_type))->pluck('credit_amount','cash_amount');
+      $transactions = \App\Transaction::where('receiver_id',userable_id())->where('customer_id', $owner->id)->where('customer_type', ra($card->cardable_type))->pluck('credit_amount','cash_amount');
       $total_amount = 0;
       if ($transactions) {
         foreach ($transactions as $key => $value) {
@@ -35,7 +35,7 @@ class AjaxController extends Controller
       }
 
       //credit
-      $credit = \App\Credit::where('card_id',$card->id)->where('receiver_id', auth()->user()->userable_id)->first();
+      $credit = \App\Credit::where('card_id',$card->id)->where('receiver_id', userable_id())->first();
 
       $credit_id = $credit ? $credit->id : 0;
 

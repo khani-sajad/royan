@@ -58,7 +58,7 @@ class UserController extends Controller
           ]);
           $user->username = $validated['username'];
           $user->save();
-          
+
         }else {
           return back();
         }

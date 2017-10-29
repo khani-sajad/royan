@@ -7,9 +7,14 @@ function rc($value){
     return (int) strtolower(str_replace(',','',$value));
 }
 
-function ut()
+function userable_type()
 {
-    return ra(auth()->user()->userable_type);
+    return ra();
+}
+
+function userable_id()
+{
+    auth()->user()->userable_id;
 }
 
 /****************************************************************/

@@ -12,7 +12,7 @@ class BladeDirectivesServiceProvider extends ServiceProvider
     {
         //reference
         Blade::if('reference', function () {
-            $reference = \App\Reference::where( 'referencable_id', auth()->user()->userable_id )
+            $reference = \App\Reference::where( 'referencable_id', userable_id() )
                                         ->where( 'referencable_type', auth()->user()->userable_type )
                                         ->first();
             return $reference ? true : false ;
@@ -20,22 +20,22 @@ class BladeDirectivesServiceProvider extends ServiceProvider
 
         //admin
         Blade::if('admin', function () {
-            return ra(auth()->user()->userable_type) == 'admin' ;
+            return userable_type() == 'admin' ;
         });
 
         //receiver
         Blade::if('receiver', function () {
-            return ra(auth()->user()->userable_type) == 'receiver' ;
+            return userable_type() == 'receiver' ;
         });
 
         //legal
         Blade::if('legal', function () {
-            return ra(auth()->user()->userable_type) == 'legal' ;
+            return userable_type() == 'legal' ;
         });
 
         //customer
         Blade::if('customer', function () {
-            return ra(auth()->user()->userable_type) == 'customer' ;
+            return userable_type() == 'customer' ;
         });
     }
 

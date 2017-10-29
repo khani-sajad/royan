@@ -17,6 +17,6 @@ class User extends Authenticatable
 
     public static function is_admin()
     {
-        return ra(auth()->user()->userable_type) == 'admin' ;
+        return userable_type() == 'admin' ;
     }
 }

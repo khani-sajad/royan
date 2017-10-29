@@ -61,6 +61,9 @@ class ReceiverController extends Controller
 
     public function update(Receiver $receiver)
     {
+        if ($receiver->id != userable_id() && userable_type() != 'admin') {
+            abort(404);
+        }
         foreach ( request()->all() as $key => $value ) {
           if(Schema::hasColumn('receivers',$key) && request($key) != $receiver->$key){
             switch ($key) {

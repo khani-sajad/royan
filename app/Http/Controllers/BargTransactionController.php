@@ -45,7 +45,7 @@ class BargTransactionController extends Controller
         $bt->description = request('description');
         $bt->reference_id = session('reference_id');
         $bt->barg_number = session('barg_number');
-        $bt->receiver_id = auth()->user()->userable_id;
+        $bt->receiver_id = userable_id();
         $bt->buyer_id = $buyer_id;
         $bt->save();
 

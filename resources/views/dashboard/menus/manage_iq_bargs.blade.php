@@ -11,16 +11,16 @@
 </a>
 <div id="IQBargs" class="drop @if (!$open) {{'hidden'}} @endif">
   @admin
-      <a href="{{url(ut().'/barg_basic_define')}}" @if ($dashboard=='barg_basic_define') {{'class=active'}} @endif>
+      <a href="{{url(userable_type().'/barg_basic_define')}}" @if ($dashboard=='barg_basic_define') {{'class=active'}} @endif>
         <i class="fa fa-tags pl-1"></i>
         <span> تعریف اولیه </span>
       </a>
   @endadmin
-  <a href="{{url(ut().'/iq_bargs')}}" @if ($dashboard=='iq_bargs') {{'class=active'}} @endif>
+  <a href="{{url(userable_type().'/iq_bargs')}}" @if ($dashboard=='iq_bargs') {{'class=active'}} @endif>
     <i class="fa fa-eye pl-1"></i>
     <span> مشاهده تمام آیکیوبرگ ها </span>
   </a>
-  <a href="{{url(ut().'/assign_iq_barg')}}" @if ($dashboard=='assign_iq_barg') {{'class=active'}} @endif>
+  <a href="{{url(userable_type().'/assign_iq_barg')}}" @if ($dashboard=='assign_iq_barg') {{'class=active'}} @endif>
     <i class="fa fa-share pl-1"></i>
     <span> تخصیص آیکیوبرگ </span>
   </a>
