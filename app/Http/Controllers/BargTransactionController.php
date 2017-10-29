@@ -41,7 +41,7 @@ class BargTransactionController extends Controller
 
         //creating a new Barg Transaction
         $bt = new \App\BargTransaction;
-        $bt->amount = request('amount');
+        $bt->amount = number_format(floor(rc(request('amount'))/10));
         $bt->description = request('description');
         $bt->reference_id = session('reference_id');
         $bt->barg_number = session('barg_number');

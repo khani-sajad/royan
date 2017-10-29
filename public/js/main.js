@@ -83,15 +83,24 @@ $(document).ready(function () {
     //barg transaction
     $(document).on('keyup','form.barg-transaction input[name=amount]', function () {
         var target = $(this).siblings('span');
-        var value = parseInt($(this).val());
+        var value = rc($(this).val());
         if (value) {
             var discount = parseInt($(this).attr('data-discount'));
             value -= Math.floor(value/discount);
-            target.html('مبلغ دریافتی از مشتری : '+value);
+            target.html('مبلغ دریافتی از مشتری : '+commo(value));
         }else {
             target.html('');
         }
     });
+
+    // commo
+    function commo(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function rc(x) {
+        return parseInt(x.replace(/,/g , ''));
+    }
 
     //helper functions
     function isInt(value) {

@@ -94,7 +94,7 @@
     <fieldset class="form-group col-sm-4">
         <i class="fa fa-asterisk small text-danger ml-1"></i> مبلغ اولیه کالا
         <span class="text-info font-weight-bold mr-2"></span>
-        <input type="text" class="form-control mt-2" name="amount" placeholder="به تومان" required data-discount="10">
+        <input type="text" class="form-control commo mt-2" name="amount" placeholder="به تومان" required data-discount="10" autocomplete="off">
     </fieldset>
     <fieldset class="form-group col-sm-8"> توضیحات
         <input type="text" class="form-control mt-2" name="description" placeholder="در صورت تمایل میتوانید توضیحات ارائه کنید.">
