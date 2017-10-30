@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/forms.css">
+    <title>CRM Form</title>
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/forms.css')}}">
 </head>
 <body dir="rtl" class="p-1">
 
@@ -175,9 +175,9 @@
 
     </form>
 
-    <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
-    <script src="js/popper.min.js" charset="utf-8"></script>
-    <script src="js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="js/forms.js" charset="utf-8"></script>
+    <script src="{{asset('js/jquery-3.2.1.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('js/forms.js')}}" charset="utf-8"></script>
 </body>
 </html>
