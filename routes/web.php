@@ -30,3 +30,6 @@ Route::post('/receiver/new_barg_transaction', 'AjaxController@get_barg_details')
 
 //other
 Route::post('assign_iq_bargs','BargController@assign');
+
+//CRM Forms
+Route::get('/forms/{form}', 'HomeController@forms');
