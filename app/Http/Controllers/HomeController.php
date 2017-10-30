@@ -9,7 +9,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->exept('forms');
     }
 
     public function index()
@@ -25,5 +25,10 @@ class HomeController extends Controller
           default:
             break;
         }//switch
+    }
+
+    public function forms($form)
+    {
+        return view('crmforms.form'.$form);
     }
 }
