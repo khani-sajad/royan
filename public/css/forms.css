@@ -1,0 +1,39 @@
+/*=================== Fonts =======================*/
+@font-face { font-family: 'Calibri'; src: url('../fonts/Calibri.ttf'); }
+@font-face { font-family: 'Yekan'; src: url('../fonts/Yekan.woff'); }
+@font-face { font-family: 'Dinar'; src: url('../fonts/Dinar.ttf'); }
+
+.dinar { font-family: 'Dinar' }
+.yekan { font-family: 'Yekan' }
+.calibri { font-family: 'Calibri' }
+
+body {font-family: 'Yekan'; overflow-x: hidden; text-align: right;}
+
+/*=================== Others =======================*/
+div.top-right-icon {
+    position: relative;
+}
+div.top-right-icon i {
+    position: absolute;
+    top:5px;
+    right: 5px;
+    font-size: 1.3em;
+}
+span.input-group-addon {
+    border-radius: 5px !important;
+    border-right:1px solid #ced4da !important;
+    margin-left: 8px;
+}
+.input-group input {
+    border-radius: 5px !important;
+}
+i.radio{
+    margin:5px;
+}
+p.border-top{
+    border-top: 1px solid #ced4da;
+    padding-top: 5px;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+}
