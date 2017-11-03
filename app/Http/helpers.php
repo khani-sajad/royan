@@ -9,12 +9,12 @@ function rc($value){
 
 function userable_type()
 {
-    return ra();
+    return ra(auth()->user()->userable_type);
 }
 
 function userable_id()
 {
-    auth()->user()->userable_id;
+    return auth()->user()->userable_id;
 }
 
 /****************************************************************/
