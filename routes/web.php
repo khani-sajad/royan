@@ -33,3 +33,6 @@ Route::post('assign_iq_bargs','BargController@assign');
 
 //CRM Forms
 Route::get('/forms/{form}', 'HomeController@forms');
+
+//SMS
+Route::get('/sms/customer/{mobile}/amount', 'SmsController@customer_cards_amount');
